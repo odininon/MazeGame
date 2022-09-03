@@ -16,4 +16,7 @@ class GameManager {
  private:
   GLFWwindow *window;
   unsigned int shaderProgram;
+
+  unsigned int VAO{};
+  unsigned int VBO{};
 };
