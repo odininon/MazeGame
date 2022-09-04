@@ -6,12 +6,14 @@
 
 #include <glm/gtc/matrix_transform.hpp>
 #include <vector>
+
+#include "Camera.h"
 class Maze {
  public:
   explicit Maze(int width, int height);
   ~Maze() = default;
 
-  void draw();
+  void draw(Camera* camera);
 
  private:
   std::vector<float> walls;
@@ -26,5 +28,5 @@ class Maze {
   unsigned int fillShader;
   unsigned int lineShader;
 
-  glm::mat4 mvp;
+  glm::mat4 Model;
 };

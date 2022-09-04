@@ -6,5 +6,5 @@ set(CMAKE_CXX_STANDARD 14)
 include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
 conan_basic_setup()
 
-add_executable(MazeGameConan src/main.cpp src/GameManager.cpp src/GameManager.h src/Maze.cpp src/Maze.h)
+add_executable(MazeGameConan src/main.cpp src/GameManager.cpp src/GameManager.h src/Maze.cpp src/Maze.h src/Camera.cpp src/Camera.h)
 target_link_libraries(MazeGameConan ${CONAN_LIBS})

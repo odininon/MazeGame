@@ -75,6 +75,65 @@ void drawNorthWall(std::vector<float>& walls, float mazeCenterX,
   walls.push_back(0 - mazeCenterY);
 }
 
+void drawWestWall(std::vector<float>& walls, float mazeCenterX,
+                  float mazeCenterY) {
+  // First segment
+  walls.push_back(mazeUnits - mazeCenterX);
+  walls.push_back(mazeUnits);
+  walls.push_back(0 - mazeCenterY);
+
+  walls.push_back(mazeUnits - mazeCenterX);
+  walls.push_back(0);
+  walls.push_back(0 - mazeCenterY);
+
+  walls.push_back(mazeUnits - mazeCenterX);
+  walls.push_back(0);
+  walls.push_back(mazeUnits - mazeCenterY);
+
+  // Second segment
+  walls.push_back(mazeUnits - mazeCenterX);
+  walls.push_back(0);
+  walls.push_back(mazeUnits - mazeCenterY);
+
+  walls.push_back(mazeUnits - mazeCenterX);
+  walls.push_back(mazeUnits);
+  walls.push_back(mazeUnits - mazeCenterY);
+
+  walls.push_back(mazeUnits - mazeCenterX);
+  walls.push_back(mazeUnits);
+  walls.push_back(0 - mazeCenterY);
+}
+
+void drawSouthWall(std::vector<float>& walls, float mazeCenterX,
+                   float mazeCenterY) {
+  // First segment
+  walls.push_back(mazeUnits - mazeCenterX);
+  walls.push_back(mazeUnits);
+  walls.push_back(mazeUnits - mazeCenterY);
+
+  walls.push_back(mazeUnits - mazeCenterX);
+  walls.push_back(0);
+  walls.push_back(mazeUnits - mazeCenterY);
+
+  walls.push_back(0 - mazeCenterX);
+  walls.push_back(0);
+  walls.push_back(mazeUnits - mazeCenterY);
+
+  // Second segment
+
+  walls.push_back(0 - mazeCenterX);
+  walls.push_back(0);
+  walls.push_back(mazeUnits - mazeCenterY);
+
+  walls.push_back(0 - mazeCenterX);
+  walls.push_back(mazeUnits);
+  walls.push_back(mazeUnits - mazeCenterY);
+
+  walls.push_back(mazeUnits - mazeCenterX);
+  walls.push_back(mazeUnits);
+  walls.push_back(mazeUnits - mazeCenterY);
+}
+
 void drawEastWall(std::vector<float>& walls, float mazeCenterX,
                   float mazeCenterY) {
   // First segment
@@ -186,6 +245,16 @@ Maze::Maze(int width, int height) {
                      (-1 * y * mazeUnits) + mazeCenterY);
       }
 
+      if (x + 1 >= width) {
+        drawWestWall(walls, (-1 * x * mazeUnits) + mazeCenterX,
+                     (-1 * y * mazeUnits) + mazeCenterY);
+      }
+
+      if (y + 1 >= height) {
+        drawSouthWall(walls, (-1 * x * mazeUnits) + mazeCenterX,
+                      (-1 * y * mazeUnits) + mazeCenterY);
+      }
+
       drawFloor(floors, (-1 * x * mazeUnits) + mazeCenterX,
                 (-1 * y * mazeUnits) + mazeCenterY);
     }
@@ -213,19 +282,7 @@ Maze::Maze(int width, int height) {
                         (void*)nullptr);
   glEnableVertexAttribArray(0);
 
-  glm::mat4 Projection = glm::perspective(
-      glm::radians(45.0f), (float)800 / (float)600, 0.1f, 1000.0f);
-
-  glm::vec3 position = glm::vec3(10, 5, 10);
-
-  // Camera matrix
-  glm::mat4 View =
-      glm::lookAt(position, position + glm::vec3(sqrt(2), 0, -sqrt(2)),
-                  glm::vec3(0, 1, 0));
-
-  glm::mat4 Model = glm::mat4(1.0f);
-
-  mvp = Projection * View * Model;
+  Model = glm::mat4(1.0f);
 
   fillShader =
       createShaderProgram(fillVertexShaderSource, fillFragmentShaderSource);
@@ -234,7 +291,9 @@ Maze::Maze(int width, int height) {
       createShaderProgram(lineVertexShaderSource, lineFragmentShaderSource);
 }
 
-void Maze::draw() {
+void Maze::draw(Camera* camera) {
+  glm::mat4 mvp = camera->getViewMatrix() * Model;
+
   glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
   glUseProgram(fillShader);
 

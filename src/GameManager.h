@@ -4,7 +4,16 @@
 
 #pragma once
 
+// clang-format off
+#include <glad/glad.h>
+#include <GLFW/glfw3.h>
+// clang-format on
+
+#include <iostream>
+
+#include "Camera.h"
 #include "Maze.h"
+
 class GLFWwindow;
 
 class GameManager {
@@ -14,8 +23,12 @@ class GameManager {
 
   void run();
 
+ public:
+  bool Keys[1024];
+
  private:
   GLFWwindow* window;
 
+  Camera* camera;
   Maze* maze;
 };
