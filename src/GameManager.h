@@ -4,6 +4,7 @@
 
 #pragma once
 
+#include "Maze.h"
 class GLFWwindow;
 
 class GameManager {
@@ -14,9 +15,7 @@ class GameManager {
   void run();
 
  private:
-  GLFWwindow *window;
-  unsigned int shaderProgram;
+  GLFWwindow* window;
 
-  unsigned int VAO{};
-  unsigned int VBO{};
+  Maze* maze;
 };
