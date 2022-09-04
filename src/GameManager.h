@@ -11,6 +11,8 @@
 
 #include <iostream>
 
+#include "steam/steam_api.h"
+
 #include "Camera.h"
 #include "Maze.h"
 

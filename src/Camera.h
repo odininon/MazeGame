@@ -10,6 +10,8 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtx/rotate_vector.hpp>
 
+#include "steam/steam_api.h"
+
 class Camera {
  public:
   Camera() {
@@ -19,6 +21,17 @@ class Camera {
     WorldUp = Up;
 
     updateCameraVectors();
+
+    SteamInput()->RunFrame();
+
+    InputHandle_t* inputHandles = new InputHandle_t[STEAM_INPUT_MAX_COUNT];
+    SteamInput()->GetConnectedControllers(inputHandles);
+
+    inputHandle = inputHandles[0];
+    gameSetHandle = SteamInput()->GetActionSetHandle("InGameControls");
+
+    moveHandle = SteamInput()->GetAnalogActionHandle("Move");
+    cameraHandle = SteamInput()->GetAnalogActionHandle("Camera");
   }
 
   void update(float deltaTime, GLFWwindow* window, const bool pBoolean[1024]);
@@ -47,6 +60,11 @@ class Camera {
   }
 
  private:
+  InputAnalogActionHandle_t moveHandle;
+  InputAnalogActionHandle_t cameraHandle;
+  InputHandle_t inputHandle;
+  InputActionSetHandle_t gameSetHandle;
+
   float Yaw = 0.0f;
   float Pitch = 0.0f;
   glm::vec3 Position;

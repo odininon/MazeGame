@@ -7,15 +7,24 @@
 #include <GLFW/glfw3.h>
 
 const float cameraSpeed = 10.0f;
-const float rotationSpeed = 40.0f;
 
 float lastX = 1280 / 2.0f;
 bool firstMouse = true;
 
-float mouseSens = 0.5f;
+float mouseSens = 0.05f;
 
-void Camera::update(float deltaTime, GLFWwindow *window,
+void Camera::update(float deltaTime, GLFWwindow* window,
                     const bool keys[1024]) {
+  SteamInput()->RunFrame();
+
+  SteamInput()->ActivateActionSet(inputHandle, gameSetHandle);
+
+  InputAnalogActionData_t movementData =
+      SteamInput()->GetAnalogActionData(inputHandle, moveHandle);
+
+  InputAnalogActionData_t cameraData =
+      SteamInput()->GetAnalogActionData(inputHandle, cameraHandle);
+
   GLdouble xPosIn;
   glfwGetCursorPos(window, &xPosIn, nullptr);
 
@@ -48,6 +57,15 @@ void Camera::update(float deltaTime, GLFWwindow *window,
 
   if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS) {
     Position -= cameraSpeed * Front * deltaTime;
+  }
+
+  if (movementData.bActive) {
+    Position += cameraSpeed * Front * deltaTime * movementData.y;
+    Position += cameraSpeed * Right * deltaTime * movementData.x;
+  }
+
+  if (cameraData.bActive) {
+    Yaw += cameraData.x * mouseSens;
   }
 
   updateCameraVectors();
