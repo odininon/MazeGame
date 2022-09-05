@@ -26,3 +26,10 @@ include_directories(steamworks_sdk/public)
 
 add_executable(MazeGameConan src/main.cpp src/Game.h src/Game.cpp src/Shader.cpp src/Shader.h src/ResourceManager.cpp src/ResourceManager.h src/Maze.cpp src/Maze.h src/Scene.h src/DefaultScene.cpp src/DefaultScene.h src/Camera.cpp src/Camera.h src/GameObject.cpp src/GameObject.h src/Mesh.cpp src/Mesh.h src/Material.cpp src/Material.h)
 target_link_libraries(MazeGameConan ${CONAN_LIBS} ${STEAMSDK_LIB})
+
+add_custom_command(
+        TARGET MazeGameConan POST_BUILD
+        COMMAND ${CMAKE_COMMAND} -E copy_directory
+        ${CMAKE_SOURCE_DIR}/shaders $<TARGET_FILE_DIR:MazeGameConan>/shaders
+        COMMENT "Copying shaders" VERBATIM
+)

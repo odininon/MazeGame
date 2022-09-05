@@ -27,7 +27,10 @@ void Game::Init() {
   scene = new DefaultScene();
 }
 
-void Game::Update(float dt) {}
+void Game::Update(float dt) {
+
+
+}
 
 void Game::ProcessInput(float dt) {}
 
