@@ -33,7 +33,7 @@ void Game::Render() {
   }
 
   ResourceManager::GetShader("default").Use().SetMatrix4("projection", camera->GetViewMatrix());
-  auto objects = scene->gameObjects;
+  auto objects = scene->m_GameObjects;
 
   for (const auto& iter : objects) {
     glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);

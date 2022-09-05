@@ -10,12 +10,12 @@
 
 class Material {
  public:
-  explicit Material(std::string shader, glm::vec3 color) : Shader(std::move(shader)), Color(color){};
+  explicit Material(std::string shader, glm::vec3 color) : m_Shader(std::move(shader)), m_Color(color){};
 
-  std::string GetShader() { return Shader; }
-  glm::vec3 GetColor() { return Color; }
+  std::string GetShader() { return m_Shader; }
+  glm::vec3 GetColor() { return m_Color; }
 
  private:
-  std::string Shader;
-  glm::vec3 Color;
+  std::string m_Shader;
+  glm::vec3 m_Color;
 };

@@ -6,12 +6,12 @@
 
 class Mesh {
  public:
-  explicit Mesh(unsigned int vertexArray, int points) : VAO(vertexArray), Points(points) {}
+  explicit Mesh(unsigned int vertexArray, int points) : m_VAO(vertexArray), m_Points(points) {}
 
-  unsigned int GetVAO() { return VAO; }
-  int GetPoints() { return Points; }
+  unsigned int GetVAO() { return m_VAO; }
+  int GetPoints() { return m_Points; }
 
  private:
-  unsigned int VAO{};
-  int Points;
+  unsigned int m_VAO{};
+  int m_Points;
 };

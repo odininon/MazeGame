@@ -11,5 +11,5 @@
 
 class Scene {
  public:
-  std::vector<std::shared_ptr<GameObject>> gameObjects{};
+  std::vector<std::shared_ptr<GameObject>> m_GameObjects{};
 };

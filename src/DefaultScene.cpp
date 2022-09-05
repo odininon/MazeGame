@@ -7,6 +7,6 @@ DefaultScene::DefaultScene() {
   auto mazeObjects = Maze::Generate(glm::vec3(0, 0, 0), 21, 21);
 
   for (const auto& iter : mazeObjects) {
-    gameObjects.push_back(iter);
+    m_GameObjects.push_back(iter);
   }
 }

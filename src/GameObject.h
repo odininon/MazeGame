@@ -12,17 +12,17 @@
 class GameObject {
  public:
   explicit GameObject(glm::vec3 position, std::shared_ptr<Mesh> mesh, std::shared_ptr<Material> material)
-      : Position(position), Mesh(std::move(mesh)), Material(std::move(material)) {}
+      : Position(position), m_Mesh(std::move(mesh)), m_Material(std::move(material)) {}
 
   ~GameObject() = default;
 
   glm::vec3 GetPosition() { return Position; }
-  Mesh GetMesh() { return *Mesh; }
-  Material GetMaterial() { return *Material; }
+  Mesh GetMesh() { return *m_Mesh; }
+  Material GetMaterial() { return *m_Material; }
 
  private:
   glm::vec3 Position;
 
-  std::shared_ptr<Mesh> Mesh;
-  std::shared_ptr<Material> Material;
+  std::shared_ptr<Mesh> m_Mesh;
+  std::shared_ptr<Material> m_Material;
 };
