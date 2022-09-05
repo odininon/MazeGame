@@ -147,7 +147,7 @@ void drawFloor(std::vector<float>& floors, float mazeCenterX, float mazeCenterY)
   floors.push_back(0 - mazeCenterY);
 }
 
-std::vector<GameObject*> Maze::Generate(const glm::vec3& position, int width, int height) {
+std::vector<std::shared_ptr<GameObject>> Maze::Generate(const glm::vec3& position, int width, int height) {
   std::vector<float> walls;
   std::vector<float> floors;
 
@@ -198,16 +198,16 @@ std::vector<GameObject*> Maze::Generate(const glm::vec3& position, int width, in
   glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)nullptr);
   glEnableVertexAttribArray(0);
 
-  Mesh* wallMesh = new Mesh(VAO1, walls.size() / 3);
-  Mesh* floorMesh = new Mesh(VAO2, floors.size() / 3);
+  auto wallMesh = std::make_shared<Mesh>(VAO1, walls.size() / 3);
+  auto floorMesh = std::make_shared<Mesh>(VAO2, floors.size() / 3);
 
-  auto wallMaterial = new Material("default", glm::vec3(0.8f, 0.5f, 0.2f));
-  auto floorMaterial = new Material("default", glm::vec3(1.0f, 1.0f, 1.0f));
+  auto wallMaterial = std::make_shared<Material>("default", glm::vec3(0.8f, 0.5f, 0.2f));
+  auto floorMaterial = std::make_shared<Material>("default", glm::vec3(1.0f, 1.0f, 1.0f));
 
-  std::vector<GameObject*> objects;
+  std::vector<std::shared_ptr<GameObject>> objects;
 
-  auto wallsObject = new GameObject(position, wallMesh, wallMaterial);
-  auto floorsObject = new GameObject(position, floorMesh, floorMaterial);
+  auto wallsObject = std::make_shared<GameObject>(position, wallMesh, wallMaterial);
+  auto floorsObject = std::make_shared<GameObject>(position, floorMesh, floorMaterial);
 
   objects.push_back(wallsObject);
   objects.push_back(floorsObject);

@@ -25,6 +25,6 @@ class Game {
   void Render();
 
  private:
-  Scene *scene{};
-  Camera *camera{};
+  std::unique_ptr<Scene> scene;
+  std::unique_ptr<Camera> camera;
 };

@@ -4,17 +4,17 @@
 
 #pragma once
 
+#include <memory>
+#include <utility>
+
 #include "Material.h"
 #include "Mesh.h"
 class GameObject {
  public:
-  explicit GameObject(glm::vec3 position, Mesh *mesh, Material *material)
-      : Position(position), Mesh(mesh), Material(material) {}
+  explicit GameObject(glm::vec3 position, std::shared_ptr<Mesh> mesh, std::shared_ptr<Material> material)
+      : Position(position), Mesh(std::move(mesh)), Material(std::move(material)) {}
 
-  ~GameObject() {
-    delete Mesh;
-    delete Material;
-  }
+  ~GameObject() = default;
 
   glm::vec3 GetPosition() { return Position; }
   Mesh GetMesh() { return *Mesh; }
@@ -23,6 +23,6 @@ class GameObject {
  private:
   glm::vec3 Position;
 
-  Mesh *Mesh;
-  Material *Material;
+  std::shared_ptr<Mesh> Mesh;
+  std::shared_ptr<Material> Material;
 };

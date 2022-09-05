@@ -9,10 +9,7 @@
 
 Game::Game(unsigned int width, unsigned int height) : Width(width), Height(height) {}
 
-Game::~Game() {
-  delete scene;
-  delete camera;
-}
+Game::~Game() = default;
 
 void Game::Init() {
   ResourceManager::LoadShader("shaders/wall.vert", "shaders/wall.frag", nullptr, "default");
@@ -22,15 +19,11 @@ void Game::Init() {
 
   glm::mat4 projection = glm::perspective(glm::radians(45.0f), (float)Width / (float)Height, 0.1f, 1000.0f);
 
-  camera = new Camera(cameraPosition, cameraFront, projection);
-
-  scene = new DefaultScene();
+  camera = std::make_unique<Camera>(cameraPosition, cameraFront, projection);
+  scene = std::make_unique<DefaultScene>();
 }
 
-void Game::Update(float dt) {
-
-
-}
+void Game::Update(float dt) {}
 
 void Game::ProcessInput(float dt) {}
 
@@ -42,7 +35,7 @@ void Game::Render() {
   ResourceManager::GetShader("default").Use().SetMatrix4("projection", camera->GetViewMatrix());
   auto objects = scene->gameObjects;
 
-  for (auto iter : objects) {
+  for (const auto& iter : objects) {
     glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
     auto shader = ResourceManager::GetShader(iter->GetMaterial().GetShader()).Use();
     shader.SetMatrix4("model", glm::translate(glm::mat4(1.0f), iter->GetPosition()));

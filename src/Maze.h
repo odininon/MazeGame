@@ -4,6 +4,7 @@
 
 #pragma once
 
+#include <memory>
 #include <vector>
 
 #include "GameObject.h"
@@ -13,5 +14,5 @@
 
 class Maze {
  public:
-  static std::vector<GameObject*> Generate(const glm::vec3& position, int width, int height);
+  static std::vector<std::shared_ptr<GameObject>> Generate(const glm::vec3& position, int width, int height);
 };
