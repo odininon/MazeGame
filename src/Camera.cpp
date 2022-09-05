@@ -15,6 +15,7 @@ float mouseSens = 0.05f;
 
 void Camera::update(float deltaTime, GLFWwindow* window,
                     const bool keys[1024]) {
+#ifdef ENABLE_STEAM
   SteamInput()->RunFrame();
 
   SteamInput()->ActivateActionSet(inputHandle, gameSetHandle);
@@ -24,6 +25,7 @@ void Camera::update(float deltaTime, GLFWwindow* window,
 
   InputAnalogActionData_t cameraData =
       SteamInput()->GetAnalogActionData(inputHandle, cameraHandle);
+#endif
 
   GLdouble xPosIn;
   glfwGetCursorPos(window, &xPosIn, nullptr);
@@ -59,6 +61,7 @@ void Camera::update(float deltaTime, GLFWwindow* window,
     Position -= cameraSpeed * Front * deltaTime;
   }
 
+#ifdef ENABLE_STEAM
   if (movementData.bActive) {
     Position += cameraSpeed * Front * deltaTime * movementData.y;
     Position += cameraSpeed * Right * deltaTime * movementData.x;
@@ -67,6 +70,7 @@ void Camera::update(float deltaTime, GLFWwindow* window,
   if (cameraData.bActive) {
     Yaw += cameraData.x * mouseSens;
   }
+#endif
 
   updateCameraVectors();
 }

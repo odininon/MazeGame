@@ -1,9 +1,13 @@
 #include <iostream>
 
 #include "GameManager.h"
+
+#ifdef ENABLE_STEAM
 #include "steam/steam_api.h"
+#endif
 
 int main() {
+#ifdef ENABLE_STEAM
   if (SteamAPI_RestartAppIfNecessary(1398840))  // Replace with your App ID
   {
     return 1;
@@ -15,6 +19,7 @@ int main() {
         "(SteamAPI_Init() failed).\n");
     return 1;
   }
+#endif
 
   GameManager gameManager;
 

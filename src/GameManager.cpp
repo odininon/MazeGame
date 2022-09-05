@@ -59,7 +59,9 @@ GameManager::GameManager() {
     throw std::runtime_error("Failed to initialize GLAD");
   }
 
+#ifdef ENABLE_STEAM
   SteamInput()->Init(false);
+#endif
 
   camera = new Camera();
   maze = new Maze(9, 9);

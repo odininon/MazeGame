@@ -10,7 +10,9 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtx/rotate_vector.hpp>
 
+#ifdef ENABLE_STEAM
 #include "steam/steam_api.h"
+#endif
 
 class Camera {
  public:
@@ -22,6 +24,7 @@ class Camera {
 
     updateCameraVectors();
 
+#ifdef ENABLE_STEAM
     SteamInput()->RunFrame();
 
     InputHandle_t* inputHandles = new InputHandle_t[STEAM_INPUT_MAX_COUNT];
@@ -32,6 +35,7 @@ class Camera {
 
     moveHandle = SteamInput()->GetAnalogActionHandle("Move");
     cameraHandle = SteamInput()->GetAnalogActionHandle("Camera");
+#endif
   }
 
   void update(float deltaTime, GLFWwindow* window, const bool pBoolean[1024]);
@@ -60,10 +64,12 @@ class Camera {
   }
 
  private:
+#ifdef ENABLE_STEAM
   InputAnalogActionHandle_t moveHandle;
   InputAnalogActionHandle_t cameraHandle;
   InputHandle_t inputHandle;
   InputActionSetHandle_t gameSetHandle;
+#endif
 
   float Yaw = 0.0f;
   float Pitch = 0.0f;
