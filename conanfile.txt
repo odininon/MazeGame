@@ -3,7 +3,6 @@ glad/0.1.36
 glfw/3.3.8
 glm/cci.20220420
 entt/3.10.3
-sdl/2.24.0
 
 [generators]
 cmake

@@ -30,7 +30,9 @@ int main() {
     return EXIT_FAILURE;
   }
 
+#ifdef ENABLE_STEAM
   SteamAPI_Shutdown();
+#endif
 
   return EXIT_SUCCESS;
 }

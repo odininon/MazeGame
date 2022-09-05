@@ -13,8 +13,7 @@ bool firstMouse = true;
 
 float mouseSens = 0.05f;
 
-void Camera::update(float deltaTime, GLFWwindow* window,
-                    const bool keys[1024]) {
+void Camera::update(float deltaTime, GLFWwindow* window) {
 #ifdef ENABLE_STEAM
   SteamInput()->RunFrame();
 

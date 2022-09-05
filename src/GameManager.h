@@ -4,17 +4,15 @@
 
 #pragma once
 
-// clang-format off
 #include <glad/glad.h>
+#define GLFW_INCLUDE_NONE
 #include <GLFW/glfw3.h>
-// clang-format on
 
 #include <iostream>
 
-#include "steam/steam_api.h"
-
 #include "Camera.h"
 #include "Maze.h"
+#include "steam/steam_api.h"
 
 class GLFWwindow;
 
@@ -24,9 +22,6 @@ class GameManager {
   ~GameManager() = default;
 
   void run();
-
- public:
-  bool Keys[1024];
 
  private:
   GLFWwindow* window;

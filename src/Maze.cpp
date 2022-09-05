@@ -294,21 +294,13 @@ Maze::Maze(int width, int height) {
 void Maze::draw(Camera* camera) {
   glm::mat4 mvp = camera->getViewMatrix() * Model;
 
-  glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+  glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+
   glUseProgram(fillShader);
 
   auto MatrixID = glGetUniformLocation(fillShader, "MVP");
   glUniformMatrix4fv(MatrixID, 1, GL_FALSE, &mvp[0][0]);
 
-  glBindVertexArray(VAO1);
-  glDrawArrays(GL_TRIANGLES, 0, walls.size() / 3);
-
-  glUseProgram(lineShader);
-
-  glBindVertexArray(VAO2);
-  glDrawArrays(GL_TRIANGLES, 0, floors.size() / 3);
-
-  glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
   glUseProgram(lineShader);
 
   MatrixID = glGetUniformLocation(lineShader, "MVP");

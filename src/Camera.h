@@ -5,7 +5,7 @@
 #pragma once
 
 #include <glad/glad.h>
-#include <glfw/glfw3.h>
+#include <GLFW/glfw3.h>
 
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtx/rotate_vector.hpp>
@@ -38,7 +38,7 @@ class Camera {
 #endif
   }
 
-  void update(float deltaTime, GLFWwindow* window, const bool pBoolean[1024]);
+  void update(float deltaTime, GLFWwindow* window);
 
   glm::mat4 getViewMatrix() {
     // Camera matrix
