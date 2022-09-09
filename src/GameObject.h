@@ -7,6 +7,7 @@
 #include <memory>
 #include <utility>
 
+#include "AABB.h"
 #include "Material.h"
 #include "Mesh.h"
 class GameObject {

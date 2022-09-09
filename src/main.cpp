@@ -24,13 +24,13 @@ int main(int argc, char* argv[]) {
   GLFWmonitor* primary = glfwGetPrimaryMonitor();
 
   auto modes = glfwGetVideoMode(primary);
-
-  SCREEN_WIDTH = modes->width;
-  SCREEN_HEIGHT = modes->height;
+//
+//  SCREEN_WIDTH = modes->width;
+//  SCREEN_HEIGHT = modes->height;
 
   Game* game = new Game(SCREEN_WIDTH, SCREEN_HEIGHT);
+  GLFWwindow* window = glfwCreateWindow(SCREEN_WIDTH, SCREEN_HEIGHT, "Maze", nullptr, nullptr);
 
-  GLFWwindow* window = glfwCreateWindow(SCREEN_WIDTH, SCREEN_HEIGHT, "Maze", primary, nullptr);
   glfwMakeContextCurrent(window);
   gladLoadGL();
 
@@ -43,7 +43,7 @@ int main(int argc, char* argv[]) {
 
   glfwSwapInterval(1);
 
-  game->Init();
+  game->Init(window);
 
   float deltaTime = 0.0f;
   float lastFrame = 0.0f;

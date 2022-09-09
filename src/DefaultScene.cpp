@@ -4,9 +4,7 @@
 
 #include "DefaultScene.h"
 DefaultScene::DefaultScene() {
-  auto mazeObjects = Maze::Generate(glm::vec3(0, 0, 0), 21, 21);
+  auto maze = std::make_shared<Maze>(glm::vec3(0, 0, 0), 11, 11);
 
-  for (const auto& iter : mazeObjects) {
-    m_GameObjects.push_back(iter);
-  }
+  m_Mazes.push_back(maze);
 }
