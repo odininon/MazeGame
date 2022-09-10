@@ -1,35 +1,43 @@
-cmake_minimum_required(VERSION 3.21)
+cmake_minimum_required(VERSION 3.13.2)
+project(MazeGame)
 
-set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR})
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR})
+# Source files
+set(SRC_DIR "${CMAKE_CURRENT_SOURCE_DIR}/src")
+set(LIB_DIR "${CMAKE_CURRENT_SOURCE_DIR}/vendor")
 
-project(MazeGameConan)
+file(GLOB SOURCES
+        "${SRC_DIR}/*.h"
+        "${SRC_DIR}/*.cpp"
+        )
 
-set(CMAKE_CXX_STANDARD 14)
+# Executable definition and properties
+add_executable(${PROJECT_NAME} ${SOURCES})
+target_include_directories(${PROJECT_NAME} PRIVATE "${SRC_DIR}")
 
-include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
-conan_basic_setup()
+# GLFW
+set(GLFW_DIR "${LIB_DIR}/glfw")
+set(GLFW_BUILD_EXAMPLES OFF CACHE INTERNAL "Build the GLFW example programs")
+set(GLFW_BUILD_TESTS OFF CACHE INTERNAL "Build the GLFW test programs")
+set(GLFW_BUILD_DOCS OFF CACHE INTERNAL "Build the GLFW documentation")
+set(GLFW_INSTALL OFF CACHE INTERNAL "Generate installation target")
+add_subdirectory("${GLFW_DIR}")
+target_link_libraries(${PROJECT_NAME} "glfw" "${GLFW_LIBRARIES}")
+target_include_directories(${PROJECT_NAME} PRIVATE "${GLFW_DIR}/include")
+target_compile_definitions(${PROJECT_NAME} PRIVATE "GLFW_INCLUDE_NONE")
 
-if (WIN32)
-    find_library(STEAMSDK_LIB NAMES steam_api64 HINTS steamworks_sdk/redistributable_bin/win64/)
-endif ()
+# glad
+set(GLAD_DIR "${LIB_DIR}/glad")
+add_library("glad" "${GLAD_DIR}/src/glad.c")
+target_include_directories("glad" PRIVATE "${GLAD_DIR}/include")
+target_include_directories(${PROJECT_NAME} PRIVATE "${GLAD_DIR}/include")
+target_link_libraries(${PROJECT_NAME} "glad" "${CMAKE_DL_LIBS}")
 
-if (APPLE)
-    find_library(STEAMSDK_LIB NAMES steam_api HINTS steamworks_sdk/redistributable_bin/osx)
-endif ()
-
-if (UNIX AND NOT APPLE)
-    find_library(STEAMSDK_LIB NAMES steam_api HINTS steamworks_sdk/redistributable_bin/linux64)
-endif ()
-
-include_directories(steamworks_sdk/public)
-
-add_executable(MazeGameConan src/main.cpp src/Game.h src/Game.cpp src/Shader.cpp src/Shader.h src/ResourceManager.cpp src/ResourceManager.h src/Maze.cpp src/Maze.h src/Scene.h src/DefaultScene.cpp src/DefaultScene.h src/Camera.cpp src/Camera.h src/GameObject.cpp src/GameObject.h src/Mesh.cpp src/Mesh.h src/Material.cpp src/Material.h src/AABB.cpp src/AABB.h)
-target_link_libraries(MazeGameConan ${CONAN_LIBS} ${STEAMSDK_LIB})
+# glm
+include_directories("${LIB_DIR}/glm")
 
 add_custom_command(
-        TARGET MazeGameConan POST_BUILD
+        TARGET ${PROJECT_NAME} POST_BUILD
         COMMAND ${CMAKE_COMMAND} -E copy_directory
-        ${CMAKE_SOURCE_DIR}/shaders $<TARGET_FILE_DIR:MazeGameConan>/shaders
+        ${CMAKE_SOURCE_DIR}/shaders $<TARGET_FILE_DIR:MazeGame>/shaders
         COMMENT "Copying shaders" VERBATIM
 )
