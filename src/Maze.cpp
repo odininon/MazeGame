@@ -157,7 +157,7 @@ void createFloor(glm::vec2 position, std::vector<float>* floors, std::vector<AAB
 
 Maze::Maze(const glm::vec3& position, int width, int height) {
   std::vector<float> walls{};
-  std::vector<float> floors{0, 0, 0};
+  std::vector<float> floors{};
 
   std::vector<AABB> collisions{};
 

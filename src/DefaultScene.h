@@ -7,6 +7,8 @@
 #include "Maze.h"
 #include "Scene.h"
 
+#include <memory>
+
 class DefaultScene : public Scene {
  public:
   DefaultScene();

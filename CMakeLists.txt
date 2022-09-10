@@ -1,6 +1,8 @@
 cmake_minimum_required(VERSION 3.13.2)
 project(MazeGame)
 
+set(CMAKE_CXX_STANDARD 14)
+
 # Source files
 set(SRC_DIR "${CMAKE_CURRENT_SOURCE_DIR}/src")
 set(LIB_DIR "${CMAKE_CURRENT_SOURCE_DIR}/vendor")

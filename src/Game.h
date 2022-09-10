@@ -4,14 +4,17 @@
 
 #pragma once
 
+#include <memory>
+
 #include <glad/glad.h>
-#define GLFW_INCLUDE_NONE
 #include <GLFW/glfw3.h>
 
 #include "Camera.h"
 #include "Maze.h"
 #include "Scene.h"
 #include "DefaultScene.h"
+
+
 
 class Game {
  public:
