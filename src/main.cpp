@@ -6,6 +6,9 @@
 
 #include "Game.h"
 #include "ResourceManager.h"
+#include "imgui.h"
+#include "imgui_impl_glfw.h"
+#include "imgui_impl_opengl3.h"
 
 #ifndef _DEBUG
 #include "steam/steam_api.h"
@@ -37,7 +40,6 @@ int main(int argc, char* argv[]) {
 
 #ifndef _DEBUG
   GLFWmonitor* primary = glfwGetPrimaryMonitor();
-
   auto modes = glfwGetVideoMode(primary);
   SCREEN_WIDTH = modes->width;
   SCREEN_HEIGHT = modes->height;
@@ -61,7 +63,9 @@ int main(int argc, char* argv[]) {
 
   srand(time(nullptr));
 
+#ifndef _DEBUG
   glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+#endif
 
   glfwSwapInterval(1);
 
@@ -70,7 +74,27 @@ int main(int argc, char* argv[]) {
   float deltaTime = 0.0f;
   float lastFrame = 0.0f;
 
+#ifdef _DEBUG
+  IMGUI_CHECKVERSION();
+  ImGui::CreateContext();
+  ImGuiIO& io = ImGui::GetIO();
+  (void)io;
+
+  ImGui::GetIO().ConfigFlags |= ImGuiConfigFlags_DockingEnable;
+
+  ImGui::StyleColorsDark();
+  ImGui_ImplGlfw_InitForOpenGL(window, true);
+  ImGui_ImplOpenGL3_Init("#version 330");
+
+#endif
+
   while (!glfwWindowShouldClose(window)) {
+#ifdef _DEBUG
+    ImGui_ImplOpenGL3_NewFrame();
+    ImGui_ImplGlfw_NewFrame();
+    ImGui::NewFrame();
+#endif
+
     const float currentFrame = glfwGetTime();
     deltaTime = currentFrame - lastFrame;
     lastFrame = currentFrame;
@@ -82,10 +106,27 @@ int main(int argc, char* argv[]) {
 
     glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
     game->Render();
+
+#ifdef _DEBUG
+    ImGui::Begin("Debug");
+    ImGui::Text("Application average %.3f ms/frame (%.1f FPS)", 1000.0f / ImGui::GetIO().Framerate,
+                ImGui::GetIO().Framerate);
+    ImGui::End();
+
+    ImGui::Render();
+    ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
+#endif
 
     glfwSwapBuffers(window);
   }
+
+#ifdef _DEBUG
+  ImGui_ImplOpenGL3_Shutdown();
+  ImGui_ImplGlfw_Shutdown();
+  ImGui::DestroyContext();
+#endif
 
   ResourceManager::Clear();
 
