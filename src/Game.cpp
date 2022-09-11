@@ -30,13 +30,8 @@ void Game::Init(GLFWwindow* window) {
 
 #ifndef _DEBUG
   SteamInput()->Init(false);
-
   SteamInput()->RunFrame();
 
-  auto inputHandles = new InputHandle_t[STEAM_INPUT_MAX_COUNT];
-  SteamInput()->GetConnectedControllers(inputHandles);
-
-  inputHandle = inputHandles[0];
   gameSetHandle = SteamInput()->GetActionSetHandle("InGameActions");
 
   moveHandle = SteamInput()->GetAnalogActionHandle("Move");
@@ -47,11 +42,14 @@ void Game::Init(GLFWwindow* window) {
 void Game::ProcessInput(float dt) {
 #ifndef _DEBUG
   SteamInput()->RunFrame();
+  auto inputHandles = new InputHandle_t[STEAM_INPUT_MAX_COUNT];
+  SteamInput()->GetConnectedControllers(inputHandles);
+
+  inputHandle = inputHandles[0];
 
   SteamInput()->ActivateActionSet(inputHandle, gameSetHandle);
 
   InputAnalogActionData_t movementData = SteamInput()->GetAnalogActionData(inputHandle, moveHandle);
-
   InputAnalogActionData_t cameraData = SteamInput()->GetAnalogActionData(inputHandle, cameraHandle);
 #endif
 
