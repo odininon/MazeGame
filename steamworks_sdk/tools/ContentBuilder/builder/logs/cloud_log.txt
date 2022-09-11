@@ -1,0 +1,170 @@
+
+
+[2022-09-10 13:42:11] [AppID 7] Starting sync (init,)
+[2022-09-10 13:42:11] [AppID 7] AutoCloud checking local state for user 24672535
+[2022-09-10 13:42:11] [AppID 7] Not running AutoCloud. No config data found
+[2022-09-10 13:42:11] [U:1:24672535] [AppID 7] Init cache request complete
+[2022-09-10 13:42:11] [AppID 7] YldWriteCacheDirectoryToFile - empty vector, deleting 'D:\Programming\Games\MazeGameConan\steamworks_sdk\tools\ContentBuilder\builder/userdata/24672535/7/remotecache.vdf'
+[2022-09-10 13:42:16] [AppID 7] Starting sync (down,)
+[2022-09-10 13:42:16] [AppID 7] Attempting to sync from local change number '0' to global change number '16111384011399765358'
+[2022-09-10 13:42:16] [AppID 7] Need to download file serverbrowser_hist.vdf
+[2022-09-10 13:42:16] [AppID 7] Need to download file sharedconfig.vdf
+[2022-09-10 13:42:16] [AppID 7] HTTP download for file 'sharedconfig.vdf' from host 'steamcloud-us-east.s3.dualstack.us-east-1.amazonaws.com' beginning. . .
+[2022-09-10 13:42:16] [AppID 7] HTTP download for file 'serverbrowser_hist.vdf' from host 'steamcloud-us-east1.storage.googleapis.com' beginning. . .
+[2022-09-10 13:42:17] [AppID 7] HTTP download for file 'serverbrowser_hist.vdf' from host 'steamcloud-us-east1.storage.googleapis.com' - Success.
+[2022-09-10 13:42:17] [AppID 7] Download OK for file serverbrowser_hist.vdf
+[2022-09-10 13:42:17] [AppID 7] HTTP download for file 'sharedconfig.vdf' from host 'steamcloud-us-east.s3.dualstack.us-east-1.amazonaws.com' - Success.
+[2022-09-10 13:42:17] [AppID 7] Download OK for file sharedconfig.vdf
+[2022-09-10 13:42:17] [AppID 7] Download complete, result OK
+[2022-09-10 13:42:17] [AppID 7] Successfully synced to ChangeNumber 16111384011399765358
+[2022-09-10 13:42:17] [Roaming Config] OnRemoteStorageSyncedClient() - result OK
+[2022-09-10 13:42:17] [AppID 7] YldWriteCacheDirectoryToFile - saved to 'D:\Programming\Games\MazeGameConan\steamworks_sdk\tools\ContentBuilder\builder/userdata/24672535/7/remotecache.vdf'
+
+
+[2022-09-10 13:57:36] [AppID 7] Starting sync (init,)
+[2022-09-10 13:57:36] [AppID 7] AutoCloud checking local state for user 24672535
+[2022-09-10 13:57:36] [U:1:24672535] [AppID 7] Init cache request complete
+[2022-09-10 13:57:36] [AppID 7] YldWriteCacheDirectoryToFile - saved to 'D:\Programming\Games\MazeGameConan\steamworks_sdk\tools\ContentBuilder\builder/userdata/24672535/7/remotecache.vdf'
+[2022-09-10 13:57:37] [Roaming Config] PerformSyncCloud - evaluating sync state
+[2022-09-10 13:57:37] [AppID 7] Starting sync (eval,)
+[2022-09-10 13:57:37] [AppID 7] AutoCloud checking local state for user 24672535
+[2022-09-10 13:57:37] [AppID 7] Need to sync from local change number '16111384011399765358' to global change number '9335178344073839852', but not attempting now
+[2022-09-10 13:57:37] [AppID 7] File is in sync serverbrowser_hist.vdf
+[2022-09-10 13:57:37] [AppID 7] File is in sync sharedconfig.vdf
+[2022-09-10 13:57:37] [AppID 7] Eval complete
+[2022-09-10 13:57:37] [Roaming Config] OnRemoteStorageStateEvaluated - result OK
+[2022-09-10 13:57:37] [AppID 7] Starting sync (down,)
+[2022-09-10 13:57:37] [AppID 7] YldWriteCacheDirectoryToFile - saved to 'D:\Programming\Games\MazeGameConan\steamworks_sdk\tools\ContentBuilder\builder/userdata/24672535/7/remotecache.vdf'
+[2022-09-10 13:57:37] [AppID 7] Attempting to sync from local change number '16111384011399765358' to global change number '9335178344073839852'
+[2022-09-10 13:57:37] [AppID 7] Download complete in build list
+[2022-09-10 13:57:37] [AppID 7] Successfully synced to ChangeNumber 9335178344073839852
+[2022-09-10 13:57:37] [Roaming Config] OnRemoteStorageSyncedClient() - result OK
+[2022-09-10 13:57:37] [Roaming Config] PerformSyncCloud - all sync'd up
+[2022-09-10 13:57:37] [AppID 7] YldWriteCacheDirectoryToFile - saved to 'D:\Programming\Games\MazeGameConan\steamworks_sdk\tools\ContentBuilder\builder/userdata/24672535/7/remotecache.vdf'
+
+
+[2022-09-10 13:58:18] [AppID 7] Starting sync (init,)
+[2022-09-10 13:58:18] [AppID 7] AutoCloud checking local state for user 24672535
+[2022-09-10 13:58:18] [U:1:24672535] [AppID 7] Init cache request complete
+[2022-09-10 13:58:18] [AppID 7] YldWriteCacheDirectoryToFile - saved to 'D:\Programming\Games\MazeGameConan\steamworks_sdk\tools\ContentBuilder\builder/userdata/24672535/7/remotecache.vdf'
+[2022-09-10 13:58:19] [Roaming Config] PerformSyncCloud - evaluating sync state
+[2022-09-10 13:58:19] [AppID 7] Starting sync (eval,)
+[2022-09-10 13:58:19] [AppID 7] AutoCloud checking local state for user 24672535
+[2022-09-10 13:58:19] [AppID 7] Currently already synced to global change number '9335178344073839852', should be nothing to download
+[2022-09-10 13:58:19] [AppID 7] File is in sync serverbrowser_hist.vdf
+[2022-09-10 13:58:19] [AppID 7] File is in sync sharedconfig.vdf
+[2022-09-10 13:58:19] [AppID 7] Eval complete
+[2022-09-10 13:58:19] [Roaming Config] OnRemoteStorageStateEvaluated - result OK
+[2022-09-10 13:58:19] [AppID 7] Starting sync (down,)
+[2022-09-10 13:58:19] [AppID 7] Currently already synced to global change number '9335178344073839852', should be nothing to download
+[2022-09-10 13:58:19] [AppID 7] Download complete in build list
+[2022-09-10 13:58:19] [AppID 7] Successfully synced to ChangeNumber 0
+[2022-09-10 13:58:19] [Roaming Config] OnRemoteStorageSyncedClient() - result OK
+[2022-09-10 13:58:19] [AppID 7] YldWriteCacheDirectoryToFile - saved to 'D:\Programming\Games\MazeGameConan\steamworks_sdk\tools\ContentBuilder\builder/userdata/24672535/7/remotecache.vdf'
+[2022-09-10 13:58:19] [AppID 7] YldWriteCacheDirectoryToFile - saved to 'D:\Programming\Games\MazeGameConan\steamworks_sdk\tools\ContentBuilder\builder/userdata/24672535/7/remotecache.vdf'
+
+
+[2022-09-10 13:58:42] [AppID 7] Starting sync (init,)
+[2022-09-10 13:58:42] [AppID 7] AutoCloud checking local state for user 24672535
+[2022-09-10 13:58:42] [U:1:24672535] [AppID 7] Init cache request complete
+[2022-09-10 13:58:43] [AppID 7] YldWriteCacheDirectoryToFile - saved to 'D:\Programming\Games\MazeGameConan\steamworks_sdk\tools\ContentBuilder\builder/userdata/24672535/7/remotecache.vdf'
+[2022-09-10 13:58:43] [Roaming Config] PerformSyncCloud - evaluating sync state
+[2022-09-10 13:58:43] [AppID 7] Starting sync (eval,)
+[2022-09-10 13:58:43] [AppID 7] AutoCloud checking local state for user 24672535
+[2022-09-10 13:58:43] [AppID 7] Currently already synced to global change number '9335178344073839852', should be nothing to download
+[2022-09-10 13:58:43] [AppID 7] File is in sync serverbrowser_hist.vdf
+[2022-09-10 13:58:43] [AppID 7] File is in sync sharedconfig.vdf
+[2022-09-10 13:58:43] [AppID 7] Eval complete
+[2022-09-10 13:58:43] [Roaming Config] OnRemoteStorageStateEvaluated - result OK
+[2022-09-10 13:58:44] [AppID 7] Starting sync (down,)
+[2022-09-10 13:58:44] [AppID 7] YldWriteCacheDirectoryToFile - saved to 'D:\Programming\Games\MazeGameConan\steamworks_sdk\tools\ContentBuilder\builder/userdata/24672535/7/remotecache.vdf'
+[2022-09-10 13:58:44] [AppID 7] Currently already synced to global change number '9335178344073839852', should be nothing to download
+[2022-09-10 13:58:44] [AppID 7] Download complete in build list
+[2022-09-10 13:58:44] [AppID 7] Successfully synced to ChangeNumber 0
+[2022-09-10 13:58:44] [Roaming Config] OnRemoteStorageSyncedClient() - result OK
+[2022-09-10 13:58:44] [AppID 7] YldWriteCacheDirectoryToFile - saved to 'D:\Programming\Games\MazeGameConan\steamworks_sdk\tools\ContentBuilder\builder/userdata/24672535/7/remotecache.vdf'
+
+
+[2022-09-10 13:59:33] [AppID 7] Starting sync (init,)
+[2022-09-10 13:59:33] [AppID 7] AutoCloud checking local state for user 24672535
+[2022-09-10 13:59:33] [U:1:24672535] [AppID 7] Init cache request complete
+[2022-09-10 13:59:33] [AppID 7] YldWriteCacheDirectoryToFile - saved to 'D:\Programming\Games\MazeGameConan\steamworks_sdk\tools\ContentBuilder\builder/userdata/24672535/7/remotecache.vdf'
+[2022-09-10 13:59:34] [Roaming Config] PerformSyncCloud - evaluating sync state
+[2022-09-10 13:59:34] [AppID 7] Starting sync (eval,)
+[2022-09-10 13:59:34] [AppID 7] AutoCloud checking local state for user 24672535
+[2022-09-10 13:59:34] [AppID 7] Currently already synced to global change number '9335178344073839852', should be nothing to download
+[2022-09-10 13:59:34] [AppID 7] File is in sync serverbrowser_hist.vdf
+[2022-09-10 13:59:34] [AppID 7] File is in sync sharedconfig.vdf
+[2022-09-10 13:59:34] [AppID 7] Eval complete
+[2022-09-10 13:59:34] [Roaming Config] OnRemoteStorageStateEvaluated - result OK
+[2022-09-10 13:59:34] [AppID 7] Starting sync (down,)
+[2022-09-10 13:59:34] [AppID 7] YldWriteCacheDirectoryToFile - saved to 'D:\Programming\Games\MazeGameConan\steamworks_sdk\tools\ContentBuilder\builder/userdata/24672535/7/remotecache.vdf'
+[2022-09-10 13:59:34] [AppID 7] Currently already synced to global change number '9335178344073839852', should be nothing to download
+[2022-09-10 13:59:34] [AppID 7] Download complete in build list
+[2022-09-10 13:59:34] [AppID 7] Successfully synced to ChangeNumber 0
+[2022-09-10 13:59:34] [Roaming Config] OnRemoteStorageSyncedClient() - result OK
+[2022-09-10 13:59:34] [AppID 7] YldWriteCacheDirectoryToFile - saved to 'D:\Programming\Games\MazeGameConan\steamworks_sdk\tools\ContentBuilder\builder/userdata/24672535/7/remotecache.vdf'
+
+
+[2022-09-10 14:52:43] [AppID 7] Starting sync (init,)
+[2022-09-10 14:52:43] [AppID 7] AutoCloud checking local state for user 24672535
+[2022-09-10 14:52:43] [U:1:24672535] [AppID 7] Init cache request complete
+[2022-09-10 14:52:43] [AppID 7] YldWriteCacheDirectoryToFile - saved to 'D:\Programming\Games\MazeGameConan\steamworks_sdk\tools\ContentBuilder\builder/userdata/24672535/7/remotecache.vdf'
+[2022-09-10 14:52:44] [Roaming Config] PerformSyncCloud - evaluating sync state
+[2022-09-10 14:52:44] [AppID 7] Starting sync (eval,)
+[2022-09-10 14:52:44] [AppID 7] AutoCloud checking local state for user 24672535
+[2022-09-10 14:52:44] [AppID 7] Need to sync from local change number '9335178344073839852' to global change number '10175310766855653150', but not attempting now
+[2022-09-10 14:52:44] [AppID 7] File is in sync serverbrowser_hist.vdf
+[2022-09-10 14:52:44] [AppID 7] File is in sync sharedconfig.vdf
+[2022-09-10 14:52:44] [AppID 7] Eval complete
+[2022-09-10 14:52:44] [Roaming Config] OnRemoteStorageStateEvaluated - result OK
+[2022-09-10 14:52:44] [AppID 7] Starting sync (down,)
+[2022-09-10 14:52:45] [AppID 7] Attempting to sync from local change number '9335178344073839852' to global change number '10175310766855653150'
+[2022-09-10 14:52:45] [AppID 7] Download complete in build list
+[2022-09-10 14:52:45] [AppID 7] Successfully synced to ChangeNumber 10175310766855653150
+[2022-09-10 14:52:45] [Roaming Config] OnRemoteStorageSyncedClient() - result OK
+[2022-09-10 14:52:45] [AppID 7] YldWriteCacheDirectoryToFile - saved to 'D:\Programming\Games\MazeGameConan\steamworks_sdk\tools\ContentBuilder\builder/userdata/24672535/7/remotecache.vdf'
+[2022-09-10 14:52:45] [AppID 7] YldWriteCacheDirectoryToFile - saved to 'D:\Programming\Games\MazeGameConan\steamworks_sdk\tools\ContentBuilder\builder/userdata/24672535/7/remotecache.vdf'
+
+
+[2022-09-10 14:55:13] [AppID 7] Starting sync (init,)
+[2022-09-10 14:55:13] [AppID 7] AutoCloud checking local state for user 24672535
+[2022-09-10 14:55:13] [U:1:24672535] [AppID 7] Init cache request complete
+[2022-09-10 14:55:13] [AppID 7] YldWriteCacheDirectoryToFile - saved to 'D:\Programming\Games\MazeGameConan\steamworks_sdk\tools\ContentBuilder\builder/userdata/24672535/7/remotecache.vdf'
+[2022-09-10 14:55:14] [Roaming Config] PerformSyncCloud - evaluating sync state
+[2022-09-10 14:55:14] [AppID 7] Starting sync (eval,)
+[2022-09-10 14:55:14] [AppID 7] AutoCloud checking local state for user 24672535
+[2022-09-10 14:55:14] [AppID 7] Currently already synced to global change number '10175310766855653150', should be nothing to download
+[2022-09-10 14:55:14] [AppID 7] File is in sync serverbrowser_hist.vdf
+[2022-09-10 14:55:14] [AppID 7] File is in sync sharedconfig.vdf
+[2022-09-10 14:55:14] [AppID 7] Eval complete
+[2022-09-10 14:55:14] [Roaming Config] OnRemoteStorageStateEvaluated - result OK
+[2022-09-10 14:55:14] [AppID 7] Starting sync (down,)
+[2022-09-10 14:55:14] [AppID 7] YldWriteCacheDirectoryToFile - saved to 'D:\Programming\Games\MazeGameConan\steamworks_sdk\tools\ContentBuilder\builder/userdata/24672535/7/remotecache.vdf'
+[2022-09-10 14:55:14] [AppID 7] Currently already synced to global change number '10175310766855653150', should be nothing to download
+[2022-09-10 14:55:14] [AppID 7] Download complete in build list
+[2022-09-10 14:55:14] [AppID 7] Successfully synced to ChangeNumber 0
+[2022-09-10 14:55:14] [Roaming Config] OnRemoteStorageSyncedClient() - result OK
+[2022-09-10 14:55:14] [AppID 7] YldWriteCacheDirectoryToFile - saved to 'D:\Programming\Games\MazeGameConan\steamworks_sdk\tools\ContentBuilder\builder/userdata/24672535/7/remotecache.vdf'
+
+
+[2022-09-10 14:57:23] [AppID 7] Starting sync (init,)
+[2022-09-10 14:57:23] [AppID 7] AutoCloud checking local state for user 24672535
+[2022-09-10 14:57:23] [U:1:24672535] [AppID 7] Init cache request complete
+[2022-09-10 14:57:23] [AppID 7] YldWriteCacheDirectoryToFile - saved to 'D:\Programming\Games\MazeGameConan\steamworks_sdk\tools\ContentBuilder\builder/userdata/24672535/7/remotecache.vdf'
+[2022-09-10 14:57:24] [Roaming Config] PerformSyncCloud - evaluating sync state
+[2022-09-10 14:57:24] [AppID 7] Starting sync (eval,)
+[2022-09-10 14:57:24] [AppID 7] AutoCloud checking local state for user 24672535
+[2022-09-10 14:57:24] [AppID 7] Currently already synced to global change number '10175310766855653150', should be nothing to download
+[2022-09-10 14:57:24] [AppID 7] File is in sync serverbrowser_hist.vdf
+[2022-09-10 14:57:24] [AppID 7] File is in sync sharedconfig.vdf
+[2022-09-10 14:57:24] [AppID 7] Eval complete
+[2022-09-10 14:57:24] [Roaming Config] OnRemoteStorageStateEvaluated - result OK
+[2022-09-10 14:57:24] [AppID 7] Starting sync (down,)
+[2022-09-10 14:57:24] [AppID 7] YldWriteCacheDirectoryToFile - saved to 'D:\Programming\Games\MazeGameConan\steamworks_sdk\tools\ContentBuilder\builder/userdata/24672535/7/remotecache.vdf'
+[2022-09-10 14:57:24] [AppID 7] Currently already synced to global change number '10175310766855653150', should be nothing to download
+[2022-09-10 14:57:24] [AppID 7] Download complete in build list
+[2022-09-10 14:57:24] [AppID 7] Successfully synced to ChangeNumber 0
+[2022-09-10 14:57:24] [Roaming Config] OnRemoteStorageSyncedClient() - result OK
+[2022-09-10 14:57:24] [Roaming Config] PerformSyncCloud - all sync'd up
+[2022-09-10 14:57:24] [AppID 7] YldWriteCacheDirectoryToFile - saved to 'D:\Programming\Games\MazeGameConan\steamworks_sdk\tools\ContentBuilder\builder/userdata/24672535/7/remotecache.vdf'

@@ -1,1 +1,1 @@
-docker build -t build-linux -f scripts/linux.dockerfile . && docker run --rm -v %cd%:/game build-linux bash /drift/scripts/build-linux.sh
+docker build -t build-linux -f scripts/linux.dockerfile . && docker run --rm -v %cd%:/game build-linux bash /game/scripts/build-linux.sh

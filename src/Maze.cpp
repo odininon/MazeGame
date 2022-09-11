@@ -7,6 +7,7 @@
 #include <glad/glad.h>
 
 #include "AABB.h"
+#include "TextMazeGenerator.h"
 
 const float mazeUnits = 10.0f;
 
@@ -138,7 +139,7 @@ void createSouthWall(glm::vec2 position, std::vector<float>* walls, std::vector<
   collisions->push_back(collision);
 }
 
-void createFloor(glm::vec2 position, std::vector<float>* floors, std::vector<AABB>* collisions) {
+void createFloor(glm::vec2 position, std::vector<float>* floors) {
   auto x = position.x - mazeUnits / 2;
   auto y = position.y - mazeUnits / 2;
 
@@ -153,9 +154,31 @@ void createFloor(glm::vec2 position, std::vector<float>* floors, std::vector<AAB
   floors->push_back(x + mazeUnits);
   floors->push_back(0);
   floors->push_back(y + mazeUnits);
+
+  floors->push_back(x + mazeUnits);
+  floors->push_back(0);
+  floors->push_back(y + mazeUnits);
+
+  floors->push_back(x + mazeUnits);
+  floors->push_back(0);
+  floors->push_back(y);
+
+  floors->push_back(x);
+  floors->push_back(0);
+  floors->push_back(y);
 }
 
 Maze::Maze(const glm::vec3& position, int width, int height) {
+  std::vector<std::vector<char>> textMaze;
+  std::vector<char> row(width + 1);
+
+  textMaze.reserve(height + 1);
+  for (int i = 0; i <= height; i++) {
+    textMaze.push_back(row);
+  }
+  
+  TextMazeGenerator::generate(textMaze);
+
   std::vector<float> walls{};
   std::vector<float> floors{};
 
@@ -166,23 +189,53 @@ Maze::Maze(const glm::vec3& position, int width, int height) {
 
   for (int x = 0; x < width; x++) {
     for (int y = 0; y < height; y++) {
-      if (y - 1 < 0) {
-        createNorthWall({x * mazeUnits - mazeCenterX, y * mazeUnits - mazeCenterY}, &walls, &collisions);
-      }
+      if (textMaze[y][x] != '*') {
+        if (y - 1 < 0) {
+          createNorthWall({x * mazeUnits - mazeCenterX, y * mazeUnits - mazeCenterY}, &walls, &collisions);
+        }
 
-      if (x - 1 < 0) {
-        createWestWall({x * mazeUnits - mazeCenterX, y * mazeUnits - mazeCenterY}, &walls, &collisions);
-      }
+        if (y + 1 >= height) {
+          createSouthWall({x * mazeUnits - mazeCenterX, y * mazeUnits - mazeCenterY}, &walls, &collisions);
+        }
 
-      if (x + 1 >= width) {
-        createEastWall({x * mazeUnits - mazeCenterX, y * mazeUnits - mazeCenterY}, &walls, &collisions);
-      }
+        if (x - 1 < 0) {
+          createWestWall({x * mazeUnits - mazeCenterX, y * mazeUnits - mazeCenterY}, &walls, &collisions);
+        }
 
-      if (y + 1 >= height) {
-        createSouthWall({x * mazeUnits - mazeCenterX, y * mazeUnits - mazeCenterY}, &walls, &collisions);
-      }
+        if (x + 1 >= width) {
+          createEastWall({x * mazeUnits - mazeCenterX, y * mazeUnits - mazeCenterY}, &walls, &collisions);
+        }
 
-      createFloor({x * mazeUnits - mazeCenterX, y * mazeUnits - mazeCenterY}, &floors, &collisions);
+        auto northNeighborY = y - 1;
+        if (northNeighborY >= 0) {
+          if (textMaze[northNeighborY][x] == '*') {
+            createNorthWall({x * mazeUnits - mazeCenterX, y * mazeUnits - mazeCenterY}, &walls, &collisions);
+          }
+        }
+
+        northNeighborY = y + 1;
+        if (northNeighborY < height) {
+          if (textMaze[northNeighborY][x] == '*') {
+            createSouthWall({x * mazeUnits - mazeCenterX, y * mazeUnits - mazeCenterY}, &walls, &collisions);
+          }
+        }
+
+        auto northNeighborX = x - 1;
+        if (northNeighborX >= 0) {
+          if (textMaze[y][northNeighborX] == '*') {
+            createWestWall({x * mazeUnits - mazeCenterX, y * mazeUnits - mazeCenterY}, &walls, &collisions);
+          }
+        }
+
+        northNeighborX = x + 1;
+        if (northNeighborX < width) {
+          if (textMaze[y][northNeighborX] == '*') {
+            createEastWall({x * mazeUnits - mazeCenterX, y * mazeUnits - mazeCenterY}, &walls, &collisions);
+          }
+        }
+
+        createFloor({x * mazeUnits - mazeCenterX, y * mazeUnits - mazeCenterY}, &floors);
+      }
     }
   }
 
@@ -224,6 +277,8 @@ Maze::Maze(const glm::vec3& position, int width, int height) {
   AABB mazeBounding{{position.x - mazeCenterX, position.y - mazeCenterY}, {width * mazeUnits, height * mazeUnits}};
   m_Size = mazeBounding;
   m_Collisions = collisions;
+
+  m_startingPosition_ = glm::vec3(-mazeCenterX, 5, -mazeCenterY);
 }
 
 bool Maze::contains(glm::vec2& position) const {

@@ -13,10 +13,10 @@ class DefaultScene : public Scene {
  public:
   DefaultScene();
 
-  std::vector<std::shared_ptr<GameObject>> GetObjects() {
+  std::vector<std::shared_ptr<GameObject>> GetObjects() const {
     std::vector<std::shared_ptr<GameObject>> objects;
 
-    for (const auto& iter : m_Mazes) {
+    for (const auto& iter : m_mazes_) {
       for (const auto& objs : iter->GetObjects()) {
         objects.push_back(objs);
       }
@@ -25,17 +25,9 @@ class DefaultScene : public Scene {
     return objects;
   }
 
-  void DrawCollisions() {
-    for (const auto& iter : m_Mazes) {
-      for (auto objs : iter->GetCollisions()) {
-        objs.Draw();
-      }
-    }
-  }
-
-  bool CheckCollisions(AABB& player) {
-    for (const auto& iter : m_Mazes) {
-      if (iter->contains(player.m_Position)) {
+  bool CheckCollisions(AABB& player) const {
+    for (const auto& iter : m_mazes_) {
+      if (iter->contains(player.m_position)) {
         return iter->CheckCollisions(player);
       }
     }
@@ -43,6 +35,8 @@ class DefaultScene : public Scene {
     return false;
   }
 
- private:
-  std::vector<std::shared_ptr<Maze>> m_Mazes{};
+  glm::vec3 defaultCameraPosition() const;
+
+private:
+  std::vector<std::shared_ptr<Maze>> m_mazes_{};
 };

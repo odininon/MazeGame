@@ -4,17 +4,16 @@
 
 #pragma once
 
+#include <GLFW/glfw3.h>
+#include <glad/glad.h>
+
 #include <memory>
 
-#include <glad/glad.h>
-#include <GLFW/glfw3.h>
-
 #include "Camera.h"
+#include "DefaultScene.h"
 #include "Maze.h"
 #include "Scene.h"
-#include "DefaultScene.h"
-
-
+#include "steam/steam_api.h"
 
 class Game {
  public:
@@ -28,7 +27,7 @@ class Game {
   void Update(float dt);
   void Render();
 
-  bool checkWallCollision(glm::vec3& player);
+  bool checkWallCollision(const glm::vec3& player) const;
 
  private:
   GLFWwindow* m_Window{};
@@ -41,4 +40,9 @@ class Game {
 
   bool firstMouse = true;
   float lastX{};
+
+  InputAnalogActionHandle_t moveHandle;
+  InputAnalogActionHandle_t cameraHandle;
+  InputHandle_t inputHandle;
+  InputActionSetHandle_t gameSetHandle;
 };

@@ -1,0 +1,81 @@
+
+
+[2022-09-10 13:41:17] Initializing System Manager
+[2022-09-10 13:41:17] Night mode active on resume 0
+[2022-09-10 13:41:17] Error: CBatteryStateManager::ThreadedComputeBestBatteryQueryMode: unable to determine a suitable battery query mode for this platform
+[2022-09-10 13:41:17] Error: CBatteryStateManager::Init: invalid query mode
+[2022-09-10 13:41:17] Error: CSystemManager::CSystemManager: failed to initialize battery state manager, battery state will be unavailable
+[2022-09-10 13:41:17] wifi power management: 1
+[2022-09-10 13:41:17] Fan control available: 0 current: 0
+
+
+[2022-09-10 13:41:56] Initializing System Manager
+[2022-09-10 13:41:56] Night mode active on resume 0
+[2022-09-10 13:41:56] Error: CBatteryStateManager::ThreadedComputeBestBatteryQueryMode: unable to determine a suitable battery query mode for this platform
+[2022-09-10 13:41:56] Error: CBatteryStateManager::Init: invalid query mode
+[2022-09-10 13:41:56] Error: CSystemManager::CSystemManager: failed to initialize battery state manager, battery state will be unavailable
+[2022-09-10 13:41:56] wifi power management: 1
+[2022-09-10 13:41:56] Fan control available: 0 current: 0
+
+
+[2022-09-10 13:57:36] Initializing System Manager
+[2022-09-10 13:57:36] Night mode active on resume 0
+[2022-09-10 13:57:36] Error: CBatteryStateManager::ThreadedComputeBestBatteryQueryMode: unable to determine a suitable battery query mode for this platform
+[2022-09-10 13:57:36] Error: CBatteryStateManager::Init: invalid query mode
+[2022-09-10 13:57:36] Error: CSystemManager::CSystemManager: failed to initialize battery state manager, battery state will be unavailable
+[2022-09-10 13:57:36] wifi power management: 1
+[2022-09-10 13:57:36] Fan control available: 0 current: 0
+
+
+[2022-09-10 13:58:18] Initializing System Manager
+[2022-09-10 13:58:18] Night mode active on resume 0
+[2022-09-10 13:58:18] Error: CBatteryStateManager::ThreadedComputeBestBatteryQueryMode: unable to determine a suitable battery query mode for this platform
+[2022-09-10 13:58:18] Error: CBatteryStateManager::Init: invalid query mode
+[2022-09-10 13:58:18] Error: CSystemManager::CSystemManager: failed to initialize battery state manager, battery state will be unavailable
+[2022-09-10 13:58:18] wifi power management: 1
+[2022-09-10 13:58:18] Fan control available: 0 current: 0
+
+
+[2022-09-10 13:58:42] Initializing System Manager
+[2022-09-10 13:58:42] Night mode active on resume 0
+[2022-09-10 13:58:42] Error: CBatteryStateManager::ThreadedComputeBestBatteryQueryMode: unable to determine a suitable battery query mode for this platform
+[2022-09-10 13:58:42] Error: CBatteryStateManager::Init: invalid query mode
+[2022-09-10 13:58:42] Error: CSystemManager::CSystemManager: failed to initialize battery state manager, battery state will be unavailable
+[2022-09-10 13:58:42] wifi power management: 1
+[2022-09-10 13:58:42] Fan control available: 0 current: 0
+
+
+[2022-09-10 13:59:33] Initializing System Manager
+[2022-09-10 13:59:33] Night mode active on resume 0
+[2022-09-10 13:59:33] Error: CBatteryStateManager::ThreadedComputeBestBatteryQueryMode: unable to determine a suitable battery query mode for this platform
+[2022-09-10 13:59:33] Error: CBatteryStateManager::Init: invalid query mode
+[2022-09-10 13:59:33] Error: CSystemManager::CSystemManager: failed to initialize battery state manager, battery state will be unavailable
+[2022-09-10 13:59:33] wifi power management: 1
+[2022-09-10 13:59:33] Fan control available: 0 current: 0
+
+
+[2022-09-10 14:52:43] Initializing System Manager
+[2022-09-10 14:52:43] Night mode active on resume 0
+[2022-09-10 14:52:43] Error: CBatteryStateManager::ThreadedComputeBestBatteryQueryMode: unable to determine a suitable battery query mode for this platform
+[2022-09-10 14:52:43] Error: CBatteryStateManager::Init: invalid query mode
+[2022-09-10 14:52:43] Error: CSystemManager::CSystemManager: failed to initialize battery state manager, battery state will be unavailable
+[2022-09-10 14:52:43] wifi power management: 1
+[2022-09-10 14:52:43] Fan control available: 0 current: 0
+
+
+[2022-09-10 14:55:13] Initializing System Manager
+[2022-09-10 14:55:13] Night mode active on resume 0
+[2022-09-10 14:55:13] Error: CBatteryStateManager::ThreadedComputeBestBatteryQueryMode: unable to determine a suitable battery query mode for this platform
+[2022-09-10 14:55:13] Error: CBatteryStateManager::Init: invalid query mode
+[2022-09-10 14:55:13] Error: CSystemManager::CSystemManager: failed to initialize battery state manager, battery state will be unavailable
+[2022-09-10 14:55:13] wifi power management: 1
+[2022-09-10 14:55:13] Fan control available: 0 current: 0
+
+
+[2022-09-10 14:57:23] Initializing System Manager
+[2022-09-10 14:57:23] Night mode active on resume 0
+[2022-09-10 14:57:23] Error: CBatteryStateManager::ThreadedComputeBestBatteryQueryMode: unable to determine a suitable battery query mode for this platform
+[2022-09-10 14:57:23] Error: CBatteryStateManager::Init: invalid query mode
+[2022-09-10 14:57:23] Error: CSystemManager::CSystemManager: failed to initialize battery state manager, battery state will be unavailable
+[2022-09-10 14:57:23] wifi power management: 1
+[2022-09-10 14:57:23] Fan control available: 0 current: 0

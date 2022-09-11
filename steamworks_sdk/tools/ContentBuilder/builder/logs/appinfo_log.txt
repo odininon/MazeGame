@@ -1,0 +1,76 @@
+
+
+[2022-09-10 13:42:11] RequestAppInfoUpdate: AppIDs 7
+[2022-09-10 13:42:11] Change number 0->16006045, apps: 0/0, packages: 0/0
+[2022-09-10 13:42:11] Requesting 1 apps, 673 packages (meta data, 1024 prev attempts)
+[2022-09-10 13:42:11] Downloaded 1 apps via HTTP, 13 KB (3 KB compressed)
+[2022-09-10 13:42:11] Requesting 0 apps, 673 packages (full data, 1024 prev attempts)
+[2022-09-10 13:42:11] UpdatesJob: finished OK, apps updated 1 (13 KB), packages updated 673 (145 KB)
+[2022-09-10 13:42:12] Requesting 1680 apps, 0 packages (meta data, 1024 prev attempts)
+[2022-09-10 13:42:12] Requested 229 app access tokens, 165 received, 64 denied
+[2022-09-10 13:42:12] Updated SHAs with 165 new access tokens
+[2022-09-10 13:42:13] Downloaded 280 apps via HTTP, 12895 KB (3236 KB compressed)
+[2022-09-10 13:42:13] Requesting 1400 apps, 0 packages (full data, 1024 prev attempts)
+[2022-09-10 13:42:16] UpdatesJob: finished OK, apps updated 1680 (16024 KB), packages updated 0 (0 KB)
+
+
+[2022-09-10 13:57:37] RequestAppInfoUpdate: AppIDs 7
+[2022-09-10 13:57:37] Packages changed: 490788=16006077,
+[2022-09-10 13:57:37] Apps changed: 1398840=16006060,
+[2022-09-10 13:57:37] Change number 16006045->16006093, apps: 1/39, packages: 1/3
+[2022-09-10 13:57:37] Requesting 66 apps, 1 packages (meta data, 1024 prev attempts)
+[2022-09-10 13:57:37] Requested 64 app access tokens, 0 received, 64 denied
+[2022-09-10 13:57:37] Requesting 1 apps, 1 packages (full data, 1024 prev attempts)
+[2022-09-10 13:57:37] UpdatesJob: finished OK, apps updated 1 (0 KB), packages updated 1 (0 KB)
+
+
+[2022-09-10 13:58:19] RequestAppInfoUpdate: AppIDs 7
+[2022-09-10 13:58:19] Apps changed: 
+[2022-09-10 13:58:19] Change number 16006093->16006095, apps: 0/2, packages: 0/0
+[2022-09-10 13:58:19] Requesting 65 apps, 0 packages (meta data, 1024 prev attempts)
+[2022-09-10 13:58:19] Requested 64 app access tokens, 0 received, 64 denied
+[2022-09-10 13:58:19] UpdatesJob: finished OK, apps updated 0 (0 KB), packages updated 0 (0 KB)
+
+
+[2022-09-10 13:58:43] RequestAppInfoUpdate: AppIDs 7
+[2022-09-10 13:58:43] Change number 16006095->16006095, apps: 0/0, packages: 0/0
+[2022-09-10 13:58:44] Requesting 65 apps, 0 packages (meta data, 1024 prev attempts)
+[2022-09-10 13:58:44] Requested 64 app access tokens, 0 received, 64 denied
+[2022-09-10 13:58:44] UpdatesJob: finished OK, apps updated 0 (0 KB), packages updated 0 (0 KB)
+
+
+[2022-09-10 13:59:34] RequestAppInfoUpdate: AppIDs 7
+[2022-09-10 13:59:34] Apps changed: 1398840=16006098,
+[2022-09-10 13:59:34] Change number 16006095->16006098, apps: 1/3, packages: 0/0
+[2022-09-10 13:59:34] Requesting 66 apps, 0 packages (meta data, 1024 prev attempts)
+[2022-09-10 13:59:34] Requested 64 app access tokens, 0 received, 64 denied
+[2022-09-10 13:59:34] Requesting 1 apps, 0 packages (full data, 1024 prev attempts)
+[2022-09-10 13:59:34] UpdatesJob: finished OK, apps updated 1 (1 KB), packages updated 0 (0 KB)
+
+
+[2022-09-10 14:52:44] RequestAppInfoUpdate: AppIDs 7
+[2022-09-10 14:52:44] Packages changed: 490788=16006278,
+[2022-09-10 14:52:44] Apps changed: 1493710=16006284,1398840=16006215,289881=16006211,
+[2022-09-10 14:52:44] Change number 16006098->16006335, apps: 3/168, packages: 1/13
+[2022-09-10 14:52:45] Requesting 68 apps, 1 packages (meta data, 1024 prev attempts)
+[2022-09-10 14:52:45] Requested 64 app access tokens, 0 received, 64 denied
+[2022-09-10 14:52:45] Requesting 3 apps, 0 packages (full data, 1024 prev attempts)
+[2022-09-10 14:52:45] UpdatesJob: finished OK, apps updated 3 (5 KB), packages updated 0 (0 KB)
+
+
+[2022-09-10 14:55:14] RequestAppInfoUpdate: AppIDs 7
+[2022-09-10 14:55:14] Apps changed: 1398840=16006338,
+[2022-09-10 14:55:14] Change number 16006335->16006344, apps: 1/7, packages: 0/0
+[2022-09-10 14:55:14] Requesting 66 apps, 1 packages (meta data, 1024 prev attempts)
+[2022-09-10 14:55:14] Requested 64 app access tokens, 0 received, 64 denied
+[2022-09-10 14:55:14] Requesting 1 apps, 0 packages (full data, 1024 prev attempts)
+[2022-09-10 14:55:14] UpdatesJob: finished OK, apps updated 1 (1 KB), packages updated 0 (0 KB)
+
+
+[2022-09-10 14:57:24] RequestAppInfoUpdate: AppIDs 7
+[2022-09-10 14:57:24] Apps changed: 1398840=16006345,
+[2022-09-10 14:57:24] Change number 16006344->16006351, apps: 1/7, packages: 0/0
+[2022-09-10 14:57:24] Requesting 66 apps, 1 packages (meta data, 1024 prev attempts)
+[2022-09-10 14:57:24] Requested 64 app access tokens, 0 received, 64 denied
+[2022-09-10 14:57:24] Requesting 1 apps, 0 packages (full data, 1024 prev attempts)
+[2022-09-10 14:57:24] UpdatesJob: finished OK, apps updated 1 (1 KB), packages updated 0 (0 KB)

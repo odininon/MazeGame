@@ -6,13 +6,23 @@
 #include "Game.h"
 #include "ResourceManager.h"
 
+#include "steam/steam_api.h"
+
 void framebuffer_size_callback(GLFWwindow* window, int width, int height);
 void key_callback(GLFWwindow* window, int key, int scancode, int action, int mode);
 
-int SCREEN_WIDTH = 800;
-int SCREEN_HEIGHT = 600;
+int SCREEN_WIDTH = 1280;
+int SCREEN_HEIGHT = 720;
 
 int main(int argc, char* argv[]) {
+  if (SteamAPI_RestartAppIfNecessary(1398840)) {
+    return 1;
+  }
+
+  if (!SteamAPI_Init()) {
+    return 1;
+  }
+
   glfwInit();
   glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
   glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
@@ -23,7 +33,7 @@ int main(int argc, char* argv[]) {
   GLFWmonitor* primary = glfwGetPrimaryMonitor();
 
   auto modes = glfwGetVideoMode(primary);
-
+//
   SCREEN_WIDTH = modes->width;
   SCREEN_HEIGHT = modes->height;
 
@@ -40,6 +50,10 @@ int main(int argc, char* argv[]) {
   glDepthFunc(GL_LESS);
   glEnable(GL_CULL_FACE);
 
+  srand(time(nullptr));
+
+  glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+
   glfwSwapInterval(1);
 
   game->Init(window);
@@ -48,7 +62,7 @@ int main(int argc, char* argv[]) {
   float lastFrame = 0.0f;
 
   while (!glfwWindowShouldClose(window)) {
-    float currentFrame = glfwGetTime();
+    const float currentFrame = glfwGetTime();
     deltaTime = currentFrame - lastFrame;
     lastFrame = currentFrame;
 
@@ -67,6 +81,11 @@ int main(int argc, char* argv[]) {
   ResourceManager::Clear();
 
   glfwTerminate();
+
+  SteamAPI_Shutdown();
+
+  delete game;
+
   return 0;
 }
 

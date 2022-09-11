@@ -1,0 +1,67 @@
+
+
+[2022-09-10 13:42:11] Failed to get ParentalSettings\Settings from config file for account ID 24672535
+[2022-09-10 13:42:11] Got parental settings for account ID 24672535
+
+
+[2022-09-10 13:57:37] Validating parental settings
+[2022-09-10 13:57:37] Settings dump:
+[2022-09-10 13:57:37] 	Account ID: 24672535
+[2022-09-10 13:57:37] 	Enabled: false
+[2022-09-10 13:57:37] 	Base list: 0 ()
+[2022-09-10 13:57:37] 	No custom list
+[2022-09-10 13:57:37] 	No enabled features
+
+
+[2022-09-10 13:58:19] Validating parental settings
+[2022-09-10 13:58:19] Settings dump:
+[2022-09-10 13:58:19] 	Account ID: 24672535
+[2022-09-10 13:58:19] 	Enabled: false
+[2022-09-10 13:58:19] 	Base list: 0 ()
+[2022-09-10 13:58:19] 	No custom list
+[2022-09-10 13:58:19] 	No enabled features
+
+
+[2022-09-10 13:58:43] Validating parental settings
+[2022-09-10 13:58:43] Settings dump:
+[2022-09-10 13:58:43] 	Account ID: 24672535
+[2022-09-10 13:58:43] 	Enabled: false
+[2022-09-10 13:58:43] 	Base list: 0 ()
+[2022-09-10 13:58:43] 	No custom list
+[2022-09-10 13:58:43] 	No enabled features
+
+
+[2022-09-10 13:59:34] Validating parental settings
+[2022-09-10 13:59:34] Settings dump:
+[2022-09-10 13:59:34] 	Account ID: 24672535
+[2022-09-10 13:59:34] 	Enabled: false
+[2022-09-10 13:59:34] 	Base list: 0 ()
+[2022-09-10 13:59:34] 	No custom list
+[2022-09-10 13:59:34] 	No enabled features
+
+
+[2022-09-10 14:52:44] Validating parental settings
+[2022-09-10 14:52:44] Settings dump:
+[2022-09-10 14:52:44] 	Account ID: 24672535
+[2022-09-10 14:52:44] 	Enabled: false
+[2022-09-10 14:52:44] 	Base list: 0 ()
+[2022-09-10 14:52:44] 	No custom list
+[2022-09-10 14:52:44] 	No enabled features
+
+
+[2022-09-10 14:55:14] Validating parental settings
+[2022-09-10 14:55:14] Settings dump:
+[2022-09-10 14:55:14] 	Account ID: 24672535
+[2022-09-10 14:55:14] 	Enabled: false
+[2022-09-10 14:55:14] 	Base list: 0 ()
+[2022-09-10 14:55:14] 	No custom list
+[2022-09-10 14:55:14] 	No enabled features
+
+
+[2022-09-10 14:57:24] Validating parental settings
+[2022-09-10 14:57:24] Settings dump:
+[2022-09-10 14:57:24] 	Account ID: 24672535
+[2022-09-10 14:57:24] 	Enabled: false
+[2022-09-10 14:57:24] 	Base list: 0 ()
+[2022-09-10 14:57:24] 	No custom list
+[2022-09-10 14:57:24] 	No enabled features

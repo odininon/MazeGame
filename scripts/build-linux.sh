@@ -1,2 +1,2 @@
-cmake /drift/ -G "Unix Makefiles" -DCMAKE_BUILD_TYPE=Release
+cmake /game/ -G "Unix Makefiles" -DCMAKE_BUILD_TYPE=Release
 cmake --build .

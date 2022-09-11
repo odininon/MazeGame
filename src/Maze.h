@@ -9,8 +9,6 @@
 
 #include "AABB.h"
 #include "GameObject.h"
-#include "Material.h"
-#include "Mesh.h"
 #include "ResourceManager.h"
 
 class Maze {
@@ -32,8 +30,11 @@ class Maze {
     return false;
   }
 
- private:
+  glm::vec3 StartingPosition() const { return m_startingPosition_; }
+
+private:
   std::vector<std::shared_ptr<GameObject>> m_Objects;
   std::vector<AABB> m_Collisions{};
-  AABB m_Size{};
+  glm::vec3 m_startingPosition_;
+  AABB m_Size;
 };

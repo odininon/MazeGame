@@ -1,0 +1,106 @@
+
+
+[2022-09-10 13:41:17] Failed to read store 'install' from 'D:\Programming\Games\MazeGameConan\steamworks_sdk\tools\ContentBuilder\builder\config\config.vdf.tmp'
+[2022-09-10 13:41:17] Failed to read store 'install' from 'D:\Programming\Games\MazeGameConan\steamworks_sdk\tools\ContentBuilder\builder\config\config.vdf.tmp'
+[2022-09-10 13:41:17] Failed to read store 'install' from 'D:\Programming\Games\MazeGameConan\steamworks_sdk\tools\ContentBuilder\builder\config\config.vdf.tmp'
+[2022-09-10 13:41:17] Failed to read store 'install' from 'D:\Programming\Games\MazeGameConan\steamworks_sdk\tools\ContentBuilder\builder\config\config.vdf.tmp'
+[2022-09-10 13:41:18] Flushed store 'install' to 'D:\Programming\Games\MazeGameConan\steamworks_sdk\tools\ContentBuilder\builder\config\config.vdf'
+[2022-09-10 13:41:19] Flushed store 'install' to 'D:\Programming\Games\MazeGameConan\steamworks_sdk\tools\ContentBuilder\builder\config\config.vdf'
+
+
+[2022-09-10 13:41:56] Loaded store 'install' from 'D:\Programming\Games\MazeGameConan\steamworks_sdk\tools\ContentBuilder\builder\config\config.vdf' successfully
+[2022-09-10 13:41:56] Loaded store 'install' from 'D:\Programming\Games\MazeGameConan\steamworks_sdk\tools\ContentBuilder\builder\config\config.vdf' successfully
+[2022-09-10 13:41:56] Loaded store 'install' from 'D:\Programming\Games\MazeGameConan\steamworks_sdk\tools\ContentBuilder\builder\config\config.vdf' successfully
+[2022-09-10 13:41:56] Loaded store 'install' from 'D:\Programming\Games\MazeGameConan\steamworks_sdk\tools\ContentBuilder\builder\config\config.vdf' successfully
+[2022-09-10 13:41:57] Flushed store 'install' to 'D:\Programming\Games\MazeGameConan\steamworks_sdk\tools\ContentBuilder\builder\config\config.vdf'
+[2022-09-10 13:42:11] Failed to read store 'userlocal' from 'D:\Programming\Games\MazeGameConan\steamworks_sdk\tools\ContentBuilder\builder\userdata\24672535\config\localconfig.vdf.tmp'
+[2022-09-10 13:42:11] Flushed store 'install' to 'D:\Programming\Games\MazeGameConan\steamworks_sdk\tools\ContentBuilder\builder\config\config.vdf'
+[2022-09-10 13:42:11] Flushed store 'userlocal' to 'D:\Programming\Games\MazeGameConan\steamworks_sdk\tools\ContentBuilder\builder\userdata\24672535\config\localconfig.vdf'
+[2022-09-10 13:42:12] Flushed store 'userlocal' to 'D:\Programming\Games\MazeGameConan\steamworks_sdk\tools\ContentBuilder\builder\userdata\24672535\config\localconfig.vdf'
+[2022-09-10 13:42:13] Flushed store 'install' to 'D:\Programming\Games\MazeGameConan\steamworks_sdk\tools\ContentBuilder\builder\config\config.vdf'
+[2022-09-10 13:42:16] Flushed store 'userlocal' to 'D:\Programming\Games\MazeGameConan\steamworks_sdk\tools\ContentBuilder\builder\userdata\24672535\config\localconfig.vdf'
+[2022-09-10 13:42:17] Flushed store 'userlocal' to 'D:\Programming\Games\MazeGameConan\steamworks_sdk\tools\ContentBuilder\builder\userdata\24672535\config\localconfig.vdf'
+
+
+[2022-09-10 13:57:36] Loaded store 'install' from 'D:\Programming\Games\MazeGameConan\steamworks_sdk\tools\ContentBuilder\builder\config\config.vdf' successfully
+[2022-09-10 13:57:36] Loaded store 'install' from 'D:\Programming\Games\MazeGameConan\steamworks_sdk\tools\ContentBuilder\builder\config\config.vdf' successfully
+[2022-09-10 13:57:36] Loaded store 'install' from 'D:\Programming\Games\MazeGameConan\steamworks_sdk\tools\ContentBuilder\builder\config\config.vdf' successfully
+[2022-09-10 13:57:36] Loaded store 'install' from 'D:\Programming\Games\MazeGameConan\steamworks_sdk\tools\ContentBuilder\builder\config\config.vdf' successfully
+[2022-09-10 13:57:36] Loaded store 'userlocal' from 'D:\Programming\Games\MazeGameConan\steamworks_sdk\tools\ContentBuilder\builder\userdata\24672535\config\localconfig.vdf' successfully
+[2022-09-10 13:57:36] Loaded store 'install' from 'D:\Programming\Games\MazeGameConan\steamworks_sdk\tools\ContentBuilder\builder\config\config.vdf' successfully
+[2022-09-10 13:57:37] Flushed store 'install' to 'D:\Programming\Games\MazeGameConan\steamworks_sdk\tools\ContentBuilder\builder\config\config.vdf'
+[2022-09-10 13:57:37] Flushed store 'install' to 'D:\Programming\Games\MazeGameConan\steamworks_sdk\tools\ContentBuilder\builder\config\config.vdf'
+[2022-09-10 13:57:37] Flushed store 'userlocal' to 'D:\Programming\Games\MazeGameConan\steamworks_sdk\tools\ContentBuilder\builder\userdata\24672535\config\localconfig.vdf'
+[2022-09-10 13:57:38] Flushed store 'userlocal' to 'D:\Programming\Games\MazeGameConan\steamworks_sdk\tools\ContentBuilder\builder\userdata\24672535\config\localconfig.vdf'
+
+
+[2022-09-10 13:58:18] Loaded store 'install' from 'D:\Programming\Games\MazeGameConan\steamworks_sdk\tools\ContentBuilder\builder\config\config.vdf' successfully
+[2022-09-10 13:58:18] Loaded store 'install' from 'D:\Programming\Games\MazeGameConan\steamworks_sdk\tools\ContentBuilder\builder\config\config.vdf' successfully
+[2022-09-10 13:58:18] Loaded store 'install' from 'D:\Programming\Games\MazeGameConan\steamworks_sdk\tools\ContentBuilder\builder\config\config.vdf' successfully
+[2022-09-10 13:58:18] Loaded store 'install' from 'D:\Programming\Games\MazeGameConan\steamworks_sdk\tools\ContentBuilder\builder\config\config.vdf' successfully
+[2022-09-10 13:58:18] Loaded store 'userlocal' from 'D:\Programming\Games\MazeGameConan\steamworks_sdk\tools\ContentBuilder\builder\userdata\24672535\config\localconfig.vdf' successfully
+[2022-09-10 13:58:18] Loaded store 'install' from 'D:\Programming\Games\MazeGameConan\steamworks_sdk\tools\ContentBuilder\builder\config\config.vdf' successfully
+[2022-09-10 13:58:19] Flushed store 'install' to 'D:\Programming\Games\MazeGameConan\steamworks_sdk\tools\ContentBuilder\builder\config\config.vdf'
+[2022-09-10 13:58:19] Flushed store 'install' to 'D:\Programming\Games\MazeGameConan\steamworks_sdk\tools\ContentBuilder\builder\config\config.vdf'
+[2022-09-10 13:58:19] Flushed store 'userlocal' to 'D:\Programming\Games\MazeGameConan\steamworks_sdk\tools\ContentBuilder\builder\userdata\24672535\config\localconfig.vdf'
+
+
+[2022-09-10 13:58:42] Loaded store 'install' from 'D:\Programming\Games\MazeGameConan\steamworks_sdk\tools\ContentBuilder\builder\config\config.vdf' successfully
+[2022-09-10 13:58:42] Loaded store 'install' from 'D:\Programming\Games\MazeGameConan\steamworks_sdk\tools\ContentBuilder\builder\config\config.vdf' successfully
+[2022-09-10 13:58:42] Loaded store 'install' from 'D:\Programming\Games\MazeGameConan\steamworks_sdk\tools\ContentBuilder\builder\config\config.vdf' successfully
+[2022-09-10 13:58:42] Loaded store 'install' from 'D:\Programming\Games\MazeGameConan\steamworks_sdk\tools\ContentBuilder\builder\config\config.vdf' successfully
+[2022-09-10 13:58:42] Loaded store 'userlocal' from 'D:\Programming\Games\MazeGameConan\steamworks_sdk\tools\ContentBuilder\builder\userdata\24672535\config\localconfig.vdf' successfully
+[2022-09-10 13:58:42] Loaded store 'install' from 'D:\Programming\Games\MazeGameConan\steamworks_sdk\tools\ContentBuilder\builder\config\config.vdf' successfully
+[2022-09-10 13:58:44] Flushed store 'install' to 'D:\Programming\Games\MazeGameConan\steamworks_sdk\tools\ContentBuilder\builder\config\config.vdf'
+[2022-09-10 13:58:44] Flushed store 'userlocal' to 'D:\Programming\Games\MazeGameConan\steamworks_sdk\tools\ContentBuilder\builder\userdata\24672535\config\localconfig.vdf'
+
+
+[2022-09-10 13:59:33] Loaded store 'install' from 'D:\Programming\Games\MazeGameConan\steamworks_sdk\tools\ContentBuilder\builder\config\config.vdf' successfully
+[2022-09-10 13:59:33] Loaded store 'install' from 'D:\Programming\Games\MazeGameConan\steamworks_sdk\tools\ContentBuilder\builder\config\config.vdf' successfully
+[2022-09-10 13:59:33] Loaded store 'install' from 'D:\Programming\Games\MazeGameConan\steamworks_sdk\tools\ContentBuilder\builder\config\config.vdf' successfully
+[2022-09-10 13:59:33] Loaded store 'install' from 'D:\Programming\Games\MazeGameConan\steamworks_sdk\tools\ContentBuilder\builder\config\config.vdf' successfully
+[2022-09-10 13:59:33] Loaded store 'userlocal' from 'D:\Programming\Games\MazeGameConan\steamworks_sdk\tools\ContentBuilder\builder\userdata\24672535\config\localconfig.vdf' successfully
+[2022-09-10 13:59:33] Loaded store 'install' from 'D:\Programming\Games\MazeGameConan\steamworks_sdk\tools\ContentBuilder\builder\config\config.vdf' successfully
+[2022-09-10 13:59:33] Flushed store 'install' to 'D:\Programming\Games\MazeGameConan\steamworks_sdk\tools\ContentBuilder\builder\config\config.vdf'
+[2022-09-10 13:59:34] Flushed store 'install' to 'D:\Programming\Games\MazeGameConan\steamworks_sdk\tools\ContentBuilder\builder\config\config.vdf'
+[2022-09-10 13:59:34] Flushed store 'userlocal' to 'D:\Programming\Games\MazeGameConan\steamworks_sdk\tools\ContentBuilder\builder\userdata\24672535\config\localconfig.vdf'
+[2022-09-10 13:59:35] Flushed store 'install' to 'D:\Programming\Games\MazeGameConan\steamworks_sdk\tools\ContentBuilder\builder\config\config.vdf'
+[2022-09-10 13:59:35] Flushed store 'userlocal' to 'D:\Programming\Games\MazeGameConan\steamworks_sdk\tools\ContentBuilder\builder\userdata\24672535\config\localconfig.vdf'
+
+
+[2022-09-10 14:52:43] Loaded store 'install' from 'D:\Programming\Games\MazeGameConan\steamworks_sdk\tools\ContentBuilder\builder\config\config.vdf' successfully
+[2022-09-10 14:52:43] Loaded store 'install' from 'D:\Programming\Games\MazeGameConan\steamworks_sdk\tools\ContentBuilder\builder\config\config.vdf' successfully
+[2022-09-10 14:52:43] Loaded store 'install' from 'D:\Programming\Games\MazeGameConan\steamworks_sdk\tools\ContentBuilder\builder\config\config.vdf' successfully
+[2022-09-10 14:52:43] Loaded store 'install' from 'D:\Programming\Games\MazeGameConan\steamworks_sdk\tools\ContentBuilder\builder\config\config.vdf' successfully
+[2022-09-10 14:52:43] Loaded store 'userlocal' from 'D:\Programming\Games\MazeGameConan\steamworks_sdk\tools\ContentBuilder\builder\userdata\24672535\config\localconfig.vdf' successfully
+[2022-09-10 14:52:43] Loaded store 'install' from 'D:\Programming\Games\MazeGameConan\steamworks_sdk\tools\ContentBuilder\builder\config\config.vdf' successfully
+[2022-09-10 14:52:44] Flushed store 'install' to 'D:\Programming\Games\MazeGameConan\steamworks_sdk\tools\ContentBuilder\builder\config\config.vdf'
+[2022-09-10 14:52:45] Flushed store 'install' to 'D:\Programming\Games\MazeGameConan\steamworks_sdk\tools\ContentBuilder\builder\config\config.vdf'
+[2022-09-10 14:52:45] Flushed store 'userlocal' to 'D:\Programming\Games\MazeGameConan\steamworks_sdk\tools\ContentBuilder\builder\userdata\24672535\config\localconfig.vdf'
+[2022-09-10 14:52:45] Flushed store 'userlocal' to 'D:\Programming\Games\MazeGameConan\steamworks_sdk\tools\ContentBuilder\builder\userdata\24672535\config\localconfig.vdf'
+[2022-09-10 14:52:47] Flushed store 'install' to 'D:\Programming\Games\MazeGameConan\steamworks_sdk\tools\ContentBuilder\builder\config\config.vdf'
+
+
+[2022-09-10 14:55:13] Loaded store 'install' from 'D:\Programming\Games\MazeGameConan\steamworks_sdk\tools\ContentBuilder\builder\config\config.vdf' successfully
+[2022-09-10 14:55:13] Loaded store 'install' from 'D:\Programming\Games\MazeGameConan\steamworks_sdk\tools\ContentBuilder\builder\config\config.vdf' successfully
+[2022-09-10 14:55:13] Loaded store 'install' from 'D:\Programming\Games\MazeGameConan\steamworks_sdk\tools\ContentBuilder\builder\config\config.vdf' successfully
+[2022-09-10 14:55:13] Loaded store 'install' from 'D:\Programming\Games\MazeGameConan\steamworks_sdk\tools\ContentBuilder\builder\config\config.vdf' successfully
+[2022-09-10 14:55:13] Loaded store 'userlocal' from 'D:\Programming\Games\MazeGameConan\steamworks_sdk\tools\ContentBuilder\builder\userdata\24672535\config\localconfig.vdf' successfully
+[2022-09-10 14:55:13] Loaded store 'install' from 'D:\Programming\Games\MazeGameConan\steamworks_sdk\tools\ContentBuilder\builder\config\config.vdf' successfully
+[2022-09-10 14:55:13] Flushed store 'install' to 'D:\Programming\Games\MazeGameConan\steamworks_sdk\tools\ContentBuilder\builder\config\config.vdf'
+[2022-09-10 14:55:14] Flushed store 'install' to 'D:\Programming\Games\MazeGameConan\steamworks_sdk\tools\ContentBuilder\builder\config\config.vdf'
+[2022-09-10 14:55:14] Flushed store 'userlocal' to 'D:\Programming\Games\MazeGameConan\steamworks_sdk\tools\ContentBuilder\builder\userdata\24672535\config\localconfig.vdf'
+[2022-09-10 14:55:15] Flushed store 'userlocal' to 'D:\Programming\Games\MazeGameConan\steamworks_sdk\tools\ContentBuilder\builder\userdata\24672535\config\localconfig.vdf'
+[2022-09-10 14:55:15] Flushed store 'install' to 'D:\Programming\Games\MazeGameConan\steamworks_sdk\tools\ContentBuilder\builder\config\config.vdf'
+
+
+[2022-09-10 14:57:23] Loaded store 'install' from 'D:\Programming\Games\MazeGameConan\steamworks_sdk\tools\ContentBuilder\builder\config\config.vdf' successfully
+[2022-09-10 14:57:23] Loaded store 'install' from 'D:\Programming\Games\MazeGameConan\steamworks_sdk\tools\ContentBuilder\builder\config\config.vdf' successfully
+[2022-09-10 14:57:23] Loaded store 'install' from 'D:\Programming\Games\MazeGameConan\steamworks_sdk\tools\ContentBuilder\builder\config\config.vdf' successfully
+[2022-09-10 14:57:23] Loaded store 'install' from 'D:\Programming\Games\MazeGameConan\steamworks_sdk\tools\ContentBuilder\builder\config\config.vdf' successfully
+[2022-09-10 14:57:23] Loaded store 'userlocal' from 'D:\Programming\Games\MazeGameConan\steamworks_sdk\tools\ContentBuilder\builder\userdata\24672535\config\localconfig.vdf' successfully
+[2022-09-10 14:57:23] Loaded store 'install' from 'D:\Programming\Games\MazeGameConan\steamworks_sdk\tools\ContentBuilder\builder\config\config.vdf' successfully
+[2022-09-10 14:57:24] Flushed store 'install' to 'D:\Programming\Games\MazeGameConan\steamworks_sdk\tools\ContentBuilder\builder\config\config.vdf'
+[2022-09-10 14:57:24] Flushed store 'install' to 'D:\Programming\Games\MazeGameConan\steamworks_sdk\tools\ContentBuilder\builder\config\config.vdf'
+[2022-09-10 14:57:24] Flushed store 'userlocal' to 'D:\Programming\Games\MazeGameConan\steamworks_sdk\tools\ContentBuilder\builder\userdata\24672535\config\localconfig.vdf'
+[2022-09-10 14:57:25] Flushed store 'userlocal' to 'D:\Programming\Games\MazeGameConan\steamworks_sdk\tools\ContentBuilder\builder\userdata\24672535\config\localconfig.vdf'

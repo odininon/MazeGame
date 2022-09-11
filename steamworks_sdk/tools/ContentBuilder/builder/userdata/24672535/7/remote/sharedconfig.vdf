@@ -1,0 +1,340 @@
+"UserLocalConfigStore"
+{
+	"Software"
+	{
+		"valve"
+		{
+			"Steam"
+			{
+				"SurveyDate"		"2022-04-02"
+				"SurveyDateVersion"		"-2886605777689570288"
+				"StartMenuShortcutCheck"		"1"
+				"DesktopShortcutCheck"		"1"
+				"SSAVersion"		"3"
+				"apps"
+				{
+					"927270"
+					{
+						"tags"
+						{
+							"0"		"VR"
+						}
+					}
+					"434030"
+					{
+						"tags"
+						{
+							"0"		"VR"
+						}
+					}
+					"868020"
+					{
+						"tags"
+						{
+							"0"		"VR"
+						}
+					}
+					"342180"
+					{
+						"tags"
+						{
+							"0"		"VR"
+						}
+					}
+					"704300"
+					{
+						"tags"
+						{
+							"0"		"VR"
+						}
+					}
+					"620980"
+					{
+						"tags"
+						{
+							"0"		"VR"
+						}
+					}
+					"823500"
+					{
+						"tags"
+						{
+							"0"		"VR"
+						}
+					}
+					"400940"
+					{
+						"tags"
+						{
+							"0"		"VR"
+						}
+					}
+					"223750"
+					{
+						"tags"
+						{
+							"0"		"VR"
+						}
+					}
+					"488310"
+					{
+						"tags"
+						{
+							"0"		"VR"
+						}
+					}
+					"359320"
+					{
+						"tags"
+						{
+							"0"		"VR"
+						}
+					}
+					"669290"
+					{
+						"tags"
+						{
+							"0"		"VR"
+						}
+					}
+					"242760"
+					{
+						"tags"
+						{
+							"0"		"VR"
+						}
+					}
+					"348250"
+					{
+						"tags"
+						{
+							"0"		"VR"
+						}
+					}
+					"578620"
+					{
+						"tags"
+						{
+							"0"		"VR"
+						}
+					}
+					"546560"
+					{
+						"tags"
+						{
+							"0"		"VR"
+						}
+					}
+					"587430"
+					{
+						"tags"
+						{
+							"0"		"VR"
+						}
+					}
+					"448280"
+					{
+						"tags"
+						{
+							"0"		"VR"
+						}
+					}
+					"690810"
+					{
+						"tags"
+						{
+							"0"		"VR"
+						}
+					}
+					"450390"
+					{
+						"tags"
+						{
+							"0"		"VR"
+						}
+					}
+					"477270"
+					{
+						"tags"
+						{
+							"0"		"VR"
+						}
+					}
+					"306760"
+					{
+						"tags"
+						{
+							"0"		"VR"
+						}
+					}
+					"555160"
+					{
+						"tags"
+						{
+							"0"		"VR"
+						}
+					}
+					"739630"
+					{
+						"tags"
+						{
+							"0"		"VR"
+						}
+					}
+					"239430"
+					{
+						"tags"
+						{
+							"0"		"VR"
+						}
+					}
+					"555880"
+					{
+						"tags"
+						{
+							"0"		"VR"
+						}
+					}
+					"475190"
+					{
+						"tags"
+						{
+							"0"		"VR"
+						}
+					}
+					"34270"
+					{
+						"tags"
+						{
+							"0"		"VR"
+						}
+					}
+					"418650"
+					{
+						"tags"
+						{
+							"0"		"VR"
+						}
+					}
+					"1067800"
+					{
+						"tags"
+						{
+							"0"		"VR"
+						}
+					}
+					"527100"
+					{
+						"tags"
+						{
+							"0"		"VR"
+						}
+					}
+					"613220"
+					{
+						"tags"
+						{
+							"0"		"VR"
+						}
+					}
+					"250820"
+					{
+						"tags"
+						{
+							"0"		"VR"
+						}
+					}
+					"323910"
+					{
+						"tags"
+						{
+							"0"		"VR"
+						}
+					}
+					"264710"
+					{
+						"tags"
+						{
+							"0"		"VR"
+						}
+					}
+					"617830"
+					{
+						"tags"
+						{
+							"0"		"VR"
+						}
+					}
+					"286160"
+					{
+						"tags"
+						{
+							"0"		"VR"
+						}
+					}
+					"356400"
+					{
+						"tags"
+						{
+							"0"		"VR"
+						}
+					}
+					"726830"
+					{
+						"tags"
+						{
+							"0"		"VR"
+						}
+					}
+					"382110"
+					{
+						"tags"
+						{
+							"0"		"VR"
+						}
+					}
+					"783710"
+					{
+						"tags"
+						{
+							"0"		"VR"
+						}
+					}
+					"269950"
+					{
+						"tags"
+						{
+							"0"		"VR"
+						}
+					}
+					"1250410"
+					{
+						"cloudenabled"		"1"
+					}
+					"1315980"
+					{
+						"tags"
+						{
+							"0"		"VR"
+						}
+					}
+				}
+				"SteamDefaultDialog"		"#app_games"
+				"ShowScreenshotManager"		"0"
+			}
+		}
+	}
+	"Web"
+	{
+		"WebFav0_URL"		"https://www.google.com/"
+		"WebFav0_Name"		"Google"
+		"WebFav1_URL"		"http://www.youtube.com/"
+		"WebFav1_Name"		"YouTube"
+		"WebFav2_URL"		"http://www.twitter.com/"
+		"WebFav2_Name"		"Twitter"
+		"WebFav3_URL"		"http://www.facebook.com/"
+		"WebFav3_Name"		"Facebook"
+		"WebFav4_URL"		"http://www.reddit.com/"
+		"WebFav4_Name"		"Reddit"
+	}
+}
