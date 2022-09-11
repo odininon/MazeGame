@@ -8,14 +8,21 @@
 #include <string>
 #include <utility>
 
+struct MaterialData {
+  glm::vec3 ObjectColor;
+  float Diffuse;
+  float Specular;
+  float Shininess;
+};
+
 class Material {
  public:
-  explicit Material(std::string shader, glm::vec3 color) : m_Shader(std::move(shader)), m_Color(color){};
+  explicit Material(std::string shader, MaterialData data) : m_Shader(std::move(shader)), m_Data(data){};
 
-  std::string GetShader() { return m_Shader; }
-  glm::vec3 GetColor() { return m_Color; }
+  std::string GetShader() const { return m_Shader; }
+  MaterialData GetData() const { return m_Data; }
 
  private:
   std::string m_Shader;
-  glm::vec3 m_Color;
+  MaterialData m_Data;
 };

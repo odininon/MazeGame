@@ -130,12 +130,28 @@ void Game::Render() {
   ResourceManager::GetShader("default").Use().SetMatrix4("projection", camera->GetViewMatrix());
   const auto objects = scene->GetObjects();
 
-  for (const auto& iter : objects) {
+  for (auto& iter : objects) {
+    auto diffuse = iter->GetMaterial().GetData().Diffuse;
+    auto specular = iter->GetMaterial().GetData().Specular;
+    auto shininess = iter->GetMaterial().GetData().Shininess;
+
     glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
     glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
     Shader shader = ResourceManager::GetShader(iter->GetMaterial().GetShader()).Use();
     shader.SetMatrix4("model", glm::translate(glm::mat4(1.0f), iter->GetPosition()));
-    shader.SetVector3f("color", iter->GetMaterial().GetColor());
+
+    shader.SetVector3f("color", iter->GetMaterial().GetData().ObjectColor);
+
+    shader.SetVector3f("viewPos", camera->GetPosition());
+
+    shader.SetFloat("material.diffuse", diffuse);
+    shader.SetFloat("material.specular", specular);
+    shader.SetFloat("material.shininess", shininess);
+
+    shader.SetVector3f("light.direction", lightDirection);
+    shader.SetVector3f("light.ambient", 0.2f, 0.2f, 0.2f);
+    shader.SetVector3f("light.diffuse", 0.5f, 0.5f, 0.5f);
+    shader.SetVector3f("light.specular", 1.0f, 1.0f, 1.0f);
 
     glBindVertexArray(iter->GetMesh().GetVAO());
     glDrawArrays(GL_TRIANGLES, 0, iter->GetMesh().GetPoints());

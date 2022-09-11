@@ -15,6 +15,8 @@
 #include "Maze.h"
 #include "Scene.h"
 
+#include "imgui.h"
+
 #ifndef _DEBUG
 #include "steam/steam_api.h"
 #endif
@@ -44,6 +46,8 @@ class Game {
 
   bool firstMouse = true;
   float lastX{};
+
+  glm::vec3 lightDirection = {-0.2f, -1.0f, 0.3f};
 
 #ifndef _DEBUG
   InputAnalogActionHandle_t moveHandle;

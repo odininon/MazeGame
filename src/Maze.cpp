@@ -11,161 +11,91 @@
 
 const float mazeUnits = 10.0f;
 
-void createNorthWall(glm::vec2 position, std::vector<float>* walls, std::vector<AABB>* collisions) {
+void createNorthWall(glm::vec2 position, std::vector<Vertex>* walls, std::vector<AABB>* collisions) {
   auto x = position.x - mazeUnits / 2;
   auto y = position.y - mazeUnits / 2;
 
-  walls->push_back(x);
-  walls->push_back(mazeUnits);
-  walls->push_back(y);
+  glm::vec3 normal = {0, 0, 1};
 
-  walls->push_back(x);
-  walls->push_back(0);
-  walls->push_back(y);
+  walls->push_back(Vertex{{x, mazeUnits, y}, normal});
+  walls->push_back(Vertex{{x, 0, y}, normal});
+  walls->push_back(Vertex{{x + mazeUnits, 0, y}, normal});
 
-  walls->push_back(x + mazeUnits);
-  walls->push_back(0);
-  walls->push_back(y);
-
-  walls->push_back(x + mazeUnits);
-  walls->push_back(0);
-  walls->push_back(y);
-
-  walls->push_back(x + mazeUnits);
-  walls->push_back(mazeUnits);
-  walls->push_back(y);
-
-  walls->push_back(x);
-  walls->push_back(mazeUnits);
-  walls->push_back(y);
+  walls->push_back(Vertex{{x + mazeUnits, 0, y}, normal});
+  walls->push_back(Vertex{{x + mazeUnits, mazeUnits, y}, normal});
+  walls->push_back(Vertex{{x, mazeUnits, y}, normal});
 
   AABB collision({x, y - mazeUnits}, {mazeUnits, mazeUnits});
   collisions->push_back(collision);
 }
 
-void createWestWall(glm::vec2 position, std::vector<float>* walls, std::vector<AABB>* collisions) {
+void createWestWall(glm::vec2 position, std::vector<Vertex>* walls, std::vector<AABB>* collisions) {
   auto x = position.x - mazeUnits / 2;
   auto y = position.y + mazeUnits / 2;
 
-  walls->push_back(x);
-  walls->push_back(mazeUnits);
-  walls->push_back(y);
+  glm::vec3 normal = {1, 0, 0};
 
-  walls->push_back(x);
-  walls->push_back(0);
-  walls->push_back(y);
+  walls->push_back(Vertex{{x, mazeUnits, y}, normal});
+  walls->push_back(Vertex{{x, 0, y}, normal});
+  walls->push_back(Vertex{{x, 0, y - mazeUnits}, normal});
 
-  walls->push_back(x);
-  walls->push_back(0);
-  walls->push_back(y - mazeUnits);
-
-  walls->push_back(x);
-  walls->push_back(0);
-  walls->push_back(y - mazeUnits);
-
-  walls->push_back(x);
-  walls->push_back(mazeUnits);
-  walls->push_back(y - mazeUnits);
-
-  walls->push_back(x);
-  walls->push_back(mazeUnits);
-  walls->push_back(y);
+  walls->push_back(Vertex{{x, 0, y - mazeUnits}, normal});
+  walls->push_back(Vertex{{x, mazeUnits, y - mazeUnits}, normal});
+  walls->push_back(Vertex{{x, mazeUnits, y}, normal});
 
   AABB collision({x - mazeUnits, y - mazeUnits}, {mazeUnits, mazeUnits});
   collisions->push_back(collision);
 }
 
-void createEastWall(glm::vec2 position, std::vector<float>* walls, std::vector<AABB>* collisions) {
+void createEastWall(glm::vec2 position, std::vector<Vertex>* walls, std::vector<AABB>* collisions) {
   auto x = position.x + mazeUnits / 2;
   auto y = position.y - mazeUnits / 2;
 
-  walls->push_back(x);
-  walls->push_back(mazeUnits);
-  walls->push_back(y);
+  glm::vec3 normal = {-1, 0, 0};
 
-  walls->push_back(x);
-  walls->push_back(0);
-  walls->push_back(y);
+  walls->push_back(Vertex{{x, mazeUnits, y}, normal});
+  walls->push_back(Vertex{{x, 0, y}, normal});
+  walls->push_back(Vertex{{x, 0, y + mazeUnits}, normal});
 
-  walls->push_back(x);
-  walls->push_back(0);
-  walls->push_back(y + mazeUnits);
-
-  walls->push_back(x);
-  walls->push_back(0);
-  walls->push_back(y + mazeUnits);
-
-  walls->push_back(x);
-  walls->push_back(mazeUnits);
-  walls->push_back(y + mazeUnits);
-
-  walls->push_back(x);
-  walls->push_back(mazeUnits);
-  walls->push_back(y);
+  walls->push_back(Vertex{{x, 0, y + mazeUnits}, normal});
+  walls->push_back(Vertex{{x, mazeUnits, y + mazeUnits}, normal});
+  walls->push_back(Vertex{{x, mazeUnits, y}, normal});
 
   AABB collision({x, y}, {mazeUnits, mazeUnits});
   collisions->push_back(collision);
 }
 
-void createSouthWall(glm::vec2 position, std::vector<float>* walls, std::vector<AABB>* collisions) {
+void createSouthWall(glm::vec2 position, std::vector<Vertex>* walls, std::vector<AABB>* collisions) {
   auto x = position.x + mazeUnits / 2;
   auto y = position.y + mazeUnits / 2;
 
-  walls->push_back(x);
-  walls->push_back(mazeUnits);
-  walls->push_back(y);
+  glm::vec3 normal = {0, 0, -1};
 
-  walls->push_back(x);
-  walls->push_back(0);
-  walls->push_back(y);
+  walls->push_back(Vertex{{x, mazeUnits, y}, normal});
+  walls->push_back(Vertex{{x, 0, y}, normal});
+  walls->push_back(Vertex{{x - mazeUnits, 0, y}, normal});
 
-  walls->push_back(x - mazeUnits);
-  walls->push_back(0);
-  walls->push_back(y);
-
-  walls->push_back(x - mazeUnits);
-  walls->push_back(0);
-  walls->push_back(y);
-
-  walls->push_back(x - mazeUnits);
-  walls->push_back(mazeUnits);
-  walls->push_back(y);
-
-  walls->push_back(x);
-  walls->push_back(mazeUnits);
-  walls->push_back(y);
+  walls->push_back(Vertex{{x - mazeUnits, 0, y}, normal});
+  walls->push_back(Vertex{{x - mazeUnits, mazeUnits, y}, normal});
+  walls->push_back(Vertex{{x, mazeUnits, y}, normal});
 
   AABB collision({x - mazeUnits, y}, {mazeUnits, mazeUnits});
   collisions->push_back(collision);
 }
 
-void createFloor(glm::vec2 position, std::vector<float>* floors) {
+void createFloor(glm::vec2 position, std::vector<Vertex>* floors) {
   auto x = position.x - mazeUnits / 2;
   auto y = position.y - mazeUnits / 2;
 
-  floors->push_back(x);
-  floors->push_back(0);
-  floors->push_back(y);
+  glm::vec3 normal = {0, 1, 0};
 
-  floors->push_back(x);
-  floors->push_back(0);
-  floors->push_back(y + mazeUnits);
+  floors->push_back(Vertex{{x, 0, y}, normal});
+  floors->push_back(Vertex{{x, 0, y + mazeUnits}, normal});
+  floors->push_back(Vertex{{x + mazeUnits, 0, y + mazeUnits}, normal});
 
-  floors->push_back(x + mazeUnits);
-  floors->push_back(0);
-  floors->push_back(y + mazeUnits);
-
-  floors->push_back(x + mazeUnits);
-  floors->push_back(0);
-  floors->push_back(y + mazeUnits);
-
-  floors->push_back(x + mazeUnits);
-  floors->push_back(0);
-  floors->push_back(y);
-
-  floors->push_back(x);
-  floors->push_back(0);
-  floors->push_back(y);
+  floors->push_back(Vertex{{x + mazeUnits, 0, y + mazeUnits}, normal});
+  floors->push_back(Vertex{{x + mazeUnits, 0, y}, normal});
+  floors->push_back(Vertex{{x, 0, y}, normal});
 }
 
 Maze::Maze(const glm::vec3& position, int width, int height) {
@@ -176,11 +106,11 @@ Maze::Maze(const glm::vec3& position, int width, int height) {
   for (int i = 0; i <= height; i++) {
     textMaze.push_back(row);
   }
-  
+
   TextMazeGenerator::generate(textMaze);
 
-  std::vector<float> walls{};
-  std::vector<float> floors{};
+  std::vector<Vertex> walls{};
+  std::vector<Vertex> floors{};
 
   std::vector<AABB> collisions{};
 
@@ -251,21 +181,32 @@ Maze::Maze(const glm::vec3& position, int width, int height) {
 
   glBindVertexArray(VAO1);
   glBindBuffer(GL_ARRAY_BUFFER, VBO1);
-  glBufferData(GL_ARRAY_BUFFER, walls.size() * sizeof(float), &walls.front(), GL_STATIC_DRAW);
-  glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)nullptr);
+  glBufferData(GL_ARRAY_BUFFER, walls.size() * sizeof(Vertex), &walls.front(), GL_STATIC_DRAW);
+
   glEnableVertexAttribArray(0);
+  glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)nullptr);
+  glEnableVertexAttribArray(1);
+  glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)offsetof(Vertex, Normal));
+  glBindVertexArray(0);
 
   glBindVertexArray(VAO2);
   glBindBuffer(GL_ARRAY_BUFFER, VBO2);
-  glBufferData(GL_ARRAY_BUFFER, floors.size() * sizeof(float), &floors.front(), GL_STATIC_DRAW);
-  glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)nullptr);
+  glBufferData(GL_ARRAY_BUFFER, floors.size() * sizeof(Vertex), &floors.front(), GL_STATIC_DRAW);
+
   glEnableVertexAttribArray(0);
+  glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)nullptr);
+  glEnableVertexAttribArray(1);
+  glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)offsetof(Vertex, Normal));
+  glBindVertexArray(0);
 
   auto wallMesh = std::make_shared<Mesh>(VAO1, walls.size() / 3);
   auto floorMesh = std::make_shared<Mesh>(VAO2, floors.size() / 3);
 
-  auto wallMaterial = std::make_shared<Material>("default", glm::vec3(0.8f, 0.5f, 0.2f));
-  auto floorMaterial = std::make_shared<Material>("default", glm::vec3(1.0f, 1.0f, 1.0f));
+  MaterialData wallMaterialData{{0.8f, 0.5f, 0.2f}, 1, 1, 1};
+  auto wallMaterial = std::make_shared<Material>("default", wallMaterialData);
+
+  MaterialData floorMaterialData{{0.8f, 0.5f, 0.2f}, 1, 1, 1};
+  auto floorMaterial = std::make_shared<Material>("default", floorMaterialData);
 
   auto wallsObject = std::make_shared<GameObject>(position, wallMesh, wallMaterial);
   auto floorsObject = std::make_shared<GameObject>(position, floorMesh, floorMaterial);

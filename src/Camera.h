@@ -17,8 +17,12 @@ class Camera {
     updateCameraVectors();
   }
 
-  glm::mat4 GetViewMatrix() {
+  glm::mat4 GetViewMatrix() const {
     return m_Projection * glm::lookAt(m_Position, m_Position + m_ForwardDirection, m_UpDirection);
+  }
+
+  glm::vec3 GetPosition() const {
+    return m_Position;
   }
 
   void AddVelocity(glm::vec2 &velocity);

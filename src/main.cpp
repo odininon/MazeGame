@@ -102,31 +102,7 @@ int main(int argc, char* argv[]) {
     ImGui_ImplOpenGL3_NewFrame();
     ImGui_ImplGlfw_NewFrame();
     ImGui::NewFrame();
-#endif
 
-    const float currentFrame = glfwGetTime();
-    deltaTime = currentFrame - lastFrame;
-    lastFrame = currentFrame;
-
-    glfwPollEvents();
-
-    game->ProcessInput(deltaTime);
-    game->Update(deltaTime);
-
-#ifdef _DEBUG
-    sceneBuffer->Bind();
-#endif
-    glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
-    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
-    game->Render();
-#ifdef _DEBUG
-    sceneBuffer->Unbind();
-    glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
-    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-#endif
-
-#ifdef _DEBUG
     static ImGuiDockNodeFlags dockspace_flags = ImGuiDockNodeFlags_PassthruCentralNode;
 
     // We are using the ImGuiWindowFlags_NoDocking flag to make the parent window not dockable into,
@@ -173,16 +149,12 @@ int main(int argc, char* argv[]) {
 
         auto dock_id_left = ImGui::DockBuilderSplitNode(dockspace_id, ImGuiDir_Left, 0.20f, nullptr, &dockspace_id);
 
-        ImGui::DockBuilderDockWindow("Left", dock_id_left);
+        ImGui::DockBuilderDockWindow("Lighting", dock_id_left);
         ImGui::DockBuilderDockWindow("Scene", dockspace_id);
 
         ImGui::DockBuilderFinish(dockspace_id);
       }
     }
-    ImGui::End();
-
-    ImGui::Begin("Left");
-    ImGui::Text("Hello, left!");
     ImGui::End();
 
     ImGui::Begin("Scene");
@@ -197,6 +169,31 @@ int main(int argc, char* argv[]) {
     }
     ImGui::EndChild();
     ImGui::End();
+#endif
+
+    const float currentFrame = glfwGetTime();
+    deltaTime = currentFrame - lastFrame;
+    lastFrame = currentFrame;
+
+    glfwPollEvents();
+
+    game->ProcessInput(deltaTime);
+    game->Update(deltaTime);
+
+#ifdef _DEBUG
+    sceneBuffer->Bind();
+#endif
+    glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+    game->Render();
+#ifdef _DEBUG
+    sceneBuffer->Unbind();
+    glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+#endif
+
+#ifdef _DEBUG
 
     ImGui::Render();
     ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());

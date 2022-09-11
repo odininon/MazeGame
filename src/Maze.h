@@ -11,6 +11,11 @@
 #include "GameObject.h"
 #include "ResourceManager.h"
 
+struct Vertex {
+  glm::vec3 Position;
+  glm::vec3 Normal;
+};
+
 class Maze {
  public:
   explicit Maze(const glm::vec3& position, int width, int height);
@@ -32,7 +37,7 @@ class Maze {
 
   glm::vec3 StartingPosition() const { return m_startingPosition_; }
 
-private:
+ private:
   std::vector<std::shared_ptr<GameObject>> m_Objects;
   std::vector<AABB> m_Collisions{};
   glm::vec3 m_startingPosition_;
