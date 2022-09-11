@@ -13,7 +13,10 @@
 #include "DefaultScene.h"
 #include "Maze.h"
 #include "Scene.h"
+
+#ifndef _DEBUG
 #include "steam/steam_api.h"
+#endif
 
 class Game {
  public:
@@ -41,8 +44,10 @@ class Game {
   bool firstMouse = true;
   float lastX{};
 
+#ifndef _DEBUG
   InputAnalogActionHandle_t moveHandle;
   InputAnalogActionHandle_t cameraHandle;
   InputHandle_t inputHandle;
   InputActionSetHandle_t gameSetHandle;
+#endif
 };

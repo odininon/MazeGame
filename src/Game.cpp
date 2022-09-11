@@ -6,7 +6,6 @@
 
 #include "DefaultScene.h"
 #include "ResourceManager.h"
-#include "steam/steam_api.h"
 
 constexpr float mouseSens = 0.25f;
 
@@ -29,6 +28,7 @@ void Game::Init(GLFWwindow* window) {
   glm::vec3 startingPos = scene->defaultCameraPosition();
   camera = std::make_unique<Camera>(startingPos, cameraFront, projection);
 
+#ifndef _DEBUG
   SteamInput()->Init(false);
 
   SteamInput()->RunFrame();
@@ -41,9 +41,11 @@ void Game::Init(GLFWwindow* window) {
 
   moveHandle = SteamInput()->GetAnalogActionHandle("Move");
   cameraHandle = SteamInput()->GetAnalogActionHandle("Camera");
+#endif
 }
 
 void Game::ProcessInput(float dt) {
+#ifndef _DEBUG
   SteamInput()->RunFrame();
 
   SteamInput()->ActivateActionSet(inputHandle, gameSetHandle);
@@ -51,6 +53,7 @@ void Game::ProcessInput(float dt) {
   InputAnalogActionData_t movementData = SteamInput()->GetAnalogActionData(inputHandle, moveHandle);
 
   InputAnalogActionData_t cameraData = SteamInput()->GetAnalogActionData(inputHandle, cameraHandle);
+#endif
 
   glm::vec2 newVelocity{};
 
@@ -70,9 +73,11 @@ void Game::ProcessInput(float dt) {
     newVelocity.x += 1;
   }
 
+#ifndef _DEBUG
   if (movementData.bActive) {
     newVelocity += glm::vec2(movementData.x, movementData.y);
   }
+#endif
 
   if (length(newVelocity) > 1) {
     newVelocity = normalize(newVelocity);
@@ -94,9 +99,11 @@ void Game::ProcessInput(float dt) {
   float xoffset = xpos - lastX;
   lastX = xpos;
 
+#ifndef _DEBUG
   if (cameraData.bActive) {
     xoffset += cameraData.x;
   }
+#endif
 
   xoffset *= mouseSens;
 

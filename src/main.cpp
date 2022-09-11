@@ -6,15 +6,15 @@
 #include "Game.h"
 #include "ResourceManager.h"
 
+#ifndef _DEBUG
 #include "steam/steam_api.h"
+#endif
 
 void framebuffer_size_callback(GLFWwindow* window, int width, int height);
 void key_callback(GLFWwindow* window, int key, int scancode, int action, int mode);
 
-int SCREEN_WIDTH = 1280;
-int SCREEN_HEIGHT = 720;
-
 int main(int argc, char* argv[]) {
+#ifndef _DEBUG
   if (SteamAPI_RestartAppIfNecessary(1398840)) {
     return 1;
   }
@@ -22,6 +22,7 @@ int main(int argc, char* argv[]) {
   if (!SteamAPI_Init()) {
     return 1;
   }
+#endif
 
   glfwInit();
   glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
@@ -30,15 +31,22 @@ int main(int argc, char* argv[]) {
 
   glfwWindowHint(GLFW_RESIZABLE, false);
 
+  int SCREEN_WIDTH = 1280;
+  int SCREEN_HEIGHT = 720;
+
+#ifndef _DEBUG
   GLFWmonitor* primary = glfwGetPrimaryMonitor();
 
   auto modes = glfwGetVideoMode(primary);
-//
   SCREEN_WIDTH = modes->width;
   SCREEN_HEIGHT = modes->height;
 
-  Game* game = new Game(SCREEN_WIDTH, SCREEN_HEIGHT);
   GLFWwindow* window = glfwCreateWindow(SCREEN_WIDTH, SCREEN_HEIGHT, "Maze", primary, nullptr);
+#else
+  GLFWwindow* window = glfwCreateWindow(SCREEN_WIDTH, SCREEN_HEIGHT, "Maze", nullptr, nullptr);
+#endif
+
+  Game* game = new Game(SCREEN_WIDTH, SCREEN_HEIGHT);
 
   glfwMakeContextCurrent(window);
   gladLoadGL();
@@ -82,7 +90,9 @@ int main(int argc, char* argv[]) {
 
   glfwTerminate();
 
+#ifndef _DEBUG
   SteamAPI_Shutdown();
+#endif
 
   delete game;
 
