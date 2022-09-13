@@ -57,8 +57,6 @@ int main(int argc, char* argv[]) {
   GLFWwindow* window = glfwCreateWindow(SCREEN_WIDTH, SCREEN_HEIGHT, "Maze", nullptr, nullptr);
 #endif
 
-  Game* game = new Game(SCREEN_WIDTH, SCREEN_HEIGHT);
-
   glfwMakeContextCurrent(window);
   gladLoadGL();
 
@@ -70,6 +68,14 @@ int main(int argc, char* argv[]) {
   glEnable(GL_CULL_FACE);
 
   srand(time(nullptr));
+
+#ifdef _DEBUG
+  sceneBuffer = new FrameBuffer(SCREEN_WIDTH, SCREEN_HEIGHT);
+  Game* game = new Game(SCREEN_WIDTH, SCREEN_HEIGHT, sceneBuffer);
+#else
+  Game* game = new Game(SCREEN_WIDTH, SCREEN_HEIGHT, nullptr);
+#endif
+
 
 #ifndef _DEBUG
   glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
@@ -93,8 +99,6 @@ int main(int argc, char* argv[]) {
   ImGui::StyleColorsDark();
   ImGui_ImplGlfw_InitForOpenGL(window, true);
   ImGui_ImplOpenGL3_Init("#version 330");
-
-  sceneBuffer = new FrameBuffer(SCREEN_WIDTH, SCREEN_HEIGHT);
 #endif
 
   while (!glfwWindowShouldClose(window)) {
@@ -156,19 +160,6 @@ int main(int argc, char* argv[]) {
       }
     }
     ImGui::End();
-
-    ImGui::Begin("Scene");
-    {
-      ImGui::BeginChild("GameRender");
-
-      float width = ImGui::GetContentRegionAvail().x;
-      float height = ImGui::GetContentRegionAvail().y;
-
-      ImGui::Image((ImTextureID)sceneBuffer->getFrameTexture(), ImGui::GetContentRegionAvail(), ImVec2(0, 1),
-                   ImVec2(1, 0));
-    }
-    ImGui::EndChild();
-    ImGui::End();
 #endif
 
     const float currentFrame = glfwGetTime();
@@ -180,15 +171,8 @@ int main(int argc, char* argv[]) {
     game->ProcessInput(deltaTime);
     game->Update(deltaTime);
 
-#ifdef _DEBUG
-    sceneBuffer->Bind();
-#endif
-    glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
-    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
     game->Render();
 #ifdef _DEBUG
-    sceneBuffer->Unbind();
     glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 #endif

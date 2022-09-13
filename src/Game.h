@@ -12,9 +12,9 @@
 
 #include "Camera.h"
 #include "DefaultScene.h"
+#include "FrameBuffer.h"
 #include "Maze.h"
 #include "Scene.h"
-
 #include "imgui.h"
 
 #ifndef _DEBUG
@@ -25,7 +25,7 @@ class Game {
  public:
   unsigned int Width, Height;
 
-  Game(unsigned int width, unsigned int height);
+  Game(unsigned int width, unsigned int height, FrameBuffer* sceneBuffer);
   ~Game();
 
   void Init(GLFWwindow* window);
@@ -49,10 +49,16 @@ class Game {
 
   glm::vec3 lightDirection = {-0.2f, -1.0f, 0.3f};
 
+  FrameBuffer* sceneBuffer;
+#ifdef _DEBUG
+  FrameBuffer* screenTextureBuffer;
+#endif
+
 #ifndef _DEBUG
   InputAnalogActionHandle_t moveHandle;
   InputAnalogActionHandle_t cameraHandle;
   InputHandle_t inputHandle;
   InputActionSetHandle_t gameSetHandle;
 #endif
+  void renderGameObjects() const;
 };

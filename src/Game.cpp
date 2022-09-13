@@ -9,13 +9,22 @@
 
 constexpr float mouseSens = 0.25f;
 
-Game::Game(const unsigned int width, const unsigned int height) : Width(width), Height(height) {}
+Game::Game(const unsigned int width, const unsigned int height, FrameBuffer* _sceneBuffer)
+    : Width(width), Height(height), sceneBuffer(_sceneBuffer) {}
 
-Game::~Game() = default;
+Game::~Game() {
+#ifdef _DEBUG
+  delete screenTextureBuffer;
+#endif
+}
 
 void Game::Init(GLFWwindow* window) {
   m_Window = window;
   ResourceManager::LoadShader("shaders/wall.vert", "shaders/wall.frag", nullptr, "default");
+
+#ifdef _DEBUG
+  screenTextureBuffer = new FrameBuffer(Width, Height);
+#endif
 
   auto cameraPosition = glm::vec3(0.0f, 5.0f, 0.0f);
   auto cameraFront = glm::vec3(0.0f, 0.0f, 0.0f);
@@ -127,6 +136,55 @@ void Game::Render() {
     return;
   }
 
+#ifdef _DEBUG
+  ImGui::Begin("Scene");
+  {
+    ImGui::BeginChild("GameRender");
+
+    float width = ImGui::GetContentRegionAvail().x;
+    float height = ImGui::GetContentRegionAvail().y;
+
+    ImGui::Image((ImTextureID)sceneBuffer->getFrameTexture(), ImGui::GetContentRegionAvail(), ImVec2(0, 1),
+                 ImVec2(1, 0));
+  }
+  ImGui::EndChild();
+  ImGui::End();
+
+  ImGui::Begin("Shadow");
+  {
+    ImGui::BeginChild("ShadowRender");
+
+    float width = ImGui::GetContentRegionAvail().x;
+    float height = ImGui::GetContentRegionAvail().y;
+
+    ImGui::Image((ImTextureID)screenTextureBuffer->getFrameTexture(), ImGui::GetContentRegionAvail(), ImVec2(0, 1),
+                 ImVec2(1, 0));
+  }
+  ImGui::EndChild();
+  ImGui::End();
+#endif
+
+  glEnable(GL_DEPTH_TEST);
+
+#ifdef _DEBUG
+  sceneBuffer->Bind();
+#endif
+  glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+  glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+  renderGameObjects();
+#ifdef _DEBUG
+  sceneBuffer->Unbind();
+#endif
+
+#ifdef _DEBUG
+  screenTextureBuffer->Bind();
+  glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
+  glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+  renderGameObjects();
+  screenTextureBuffer->Unbind();
+#endif
+}
+void Game::renderGameObjects() const {
   ResourceManager::GetShader("default").Use().SetMatrix4("projection", camera->GetViewMatrix());
   const auto objects = scene->GetObjects();
 
