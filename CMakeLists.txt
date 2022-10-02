@@ -7,17 +7,17 @@ project(MazeGame)
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/dist)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/dist)
 
-set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD 17)
 
 ## Find dependencies
 find_package(glfw3 CONFIG REQUIRED)
-find_package(glad CONFIG REQUIRED)
 find_package(glm CONFIG REQUIRED)
 find_package(freetype CONFIG REQUIRED)
 find_package(imgui CONFIG REQUIRED)
 
 # stb does not have a CMake build, but is header-only
 find_path(STB_INCLUDE_DIRS "stb_c_lexer.h")
+find_path(VULKAN_HPP_INCLUDE_DIRS "vulkan/vulkan.hpp")
 
 # Source files
 set(SRC_DIR "${CMAKE_CURRENT_SOURCE_DIR}/src")
@@ -43,8 +43,8 @@ include_directories(steamworks_sdk/public)
 
 # Executable definition and properties
 add_executable(${PROJECT_NAME} ${SOURCES})
-target_include_directories(${PROJECT_NAME} PRIVATE ${STB_INCLUDE_DIRS} "${SRC_DIR}")
-target_link_libraries(${PROJECT_NAME} PRIVATE ${STEAMSDK_LIB} freetype glfw glad::glad glm::glm imgui::imgui)
+target_include_directories(${PROJECT_NAME} PRIVATE ${STB_INCLUDE_DIRS} ${VULKAN_HPP_INCLUDE_DIRS} "${SRC_DIR}")
+target_link_libraries(${PROJECT_NAME} PRIVATE ${STEAMSDK_LIB} freetype glfw glm::glm imgui::imgui)
 
 add_custom_command(
         TARGET ${PROJECT_NAME} POST_BUILD
