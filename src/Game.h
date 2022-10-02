@@ -12,7 +12,6 @@
 
 #include "Camera.h"
 #include "DefaultScene.h"
-#include "FrameBuffer.h"
 #include "Maze.h"
 #include "Scene.h"
 #include "imgui.h"
@@ -25,7 +24,7 @@ class Game {
  public:
   unsigned int Width, Height;
 
-  Game(unsigned int width, unsigned int height, FrameBuffer* sceneBuffer);
+  Game(unsigned int width, unsigned int height);
   ~Game();
 
   void Init(GLFWwindow* window);
@@ -34,6 +33,8 @@ class Game {
   void Render();
 
   bool checkWallCollision(const glm::vec3& player) const;
+
+  void processKey(GLFWwindow* window, int key, int action, int mode);
 
  private:
   GLFWwindow* m_Window{};
@@ -47,12 +48,7 @@ class Game {
   bool firstMouse = true;
   float lastX{};
 
-  glm::vec3 lightDirection = {-0.2f, -1.0f, 0.3f};
-
-  FrameBuffer* sceneBuffer;
-#ifdef _DEBUG
-  FrameBuffer* screenTextureBuffer;
-#endif
+  bool captureMouse = true;
 
 #ifndef _DEBUG
   InputAnalogActionHandle_t moveHandle;
@@ -61,4 +57,5 @@ class Game {
   InputActionSetHandle_t gameSetHandle;
 #endif
   void renderGameObjects() const;
+  void toggleMouseCapture(bool b);
 };

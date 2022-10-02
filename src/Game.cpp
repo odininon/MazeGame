@@ -9,22 +9,13 @@
 
 constexpr float mouseSens = 0.25f;
 
-Game::Game(const unsigned int width, const unsigned int height, FrameBuffer* _sceneBuffer)
-    : Width(width), Height(height), sceneBuffer(_sceneBuffer) {}
+Game::Game(const unsigned int width, const unsigned int height) : Width(width), Height(height) {}
 
-Game::~Game() {
-#ifdef _DEBUG
-  delete screenTextureBuffer;
-#endif
-}
+Game::~Game() {}
 
 void Game::Init(GLFWwindow* window) {
   m_Window = window;
   ResourceManager::LoadShader("shaders/wall.vert", "shaders/wall.frag", nullptr, "default");
-
-#ifdef _DEBUG
-  screenTextureBuffer = new FrameBuffer(Width, Height);
-#endif
 
   auto cameraPosition = glm::vec3(0.0f, 5.0f, 0.0f);
   auto cameraFront = glm::vec3(0.0f, 0.0f, 0.0f);
@@ -46,6 +37,8 @@ void Game::Init(GLFWwindow* window) {
   moveHandle = SteamInput()->GetAnalogActionHandle("Move");
   cameraHandle = SteamInput()->GetAnalogActionHandle("Camera");
 #endif
+
+  toggleMouseCapture(captureMouse);
 }
 
 void Game::ProcessInput(float dt) {
@@ -64,47 +57,58 @@ void Game::ProcessInput(float dt) {
 
   glm::vec2 newVelocity{};
 
-  if (glfwGetKey(m_Window, GLFW_KEY_W)) {
-    newVelocity.y += 1;
-  }
+  float xoffset = 0.0f;
 
-  if (glfwGetKey(m_Window, GLFW_KEY_S)) {
-    newVelocity.y -= 1;
-  }
-
-  if (glfwGetKey(m_Window, GLFW_KEY_A)) {
-    newVelocity.x -= 1;
-  }
-
-  if (glfwGetKey(m_Window, GLFW_KEY_D)) {
-    newVelocity.x += 1;
-  }
-
-#ifndef _DEBUG
-  if (movementData.bActive) {
-    newVelocity += glm::vec2(movementData.x, movementData.y);
-  }
+#ifdef _DEBUG
+  ImGuiIO& io = ImGui::GetIO();
+  if (!io.WantCaptureMouse && captureMouse) {
 #endif
 
-  if (length(newVelocity) > 1) {
-    newVelocity = normalize(newVelocity);
-  }
+    if (glfwGetKey(m_Window, GLFW_KEY_W)) {
+      newVelocity.y += 1;
+    }
 
-  playerVelocity = newVelocity;
+    if (glfwGetKey(m_Window, GLFW_KEY_S)) {
+      newVelocity.y -= 1;
+    }
 
-  GLdouble xPosIn;
-  glfwGetCursorPos(m_Window, &xPosIn, nullptr);
+    if (glfwGetKey(m_Window, GLFW_KEY_A)) {
+      newVelocity.x -= 1;
+    }
 
-  auto xpos = static_cast<float>(xPosIn);
+    if (glfwGetKey(m_Window, GLFW_KEY_D)) {
+      newVelocity.x += 1;
+    }
 
-  if (firstMouse) {
+#ifndef _DEBUG
+    if (movementData.bActive) {
+      newVelocity += glm::vec2(movementData.x, movementData.y);
+    }
+#endif
+
+    if (length(newVelocity) > 1) {
+      newVelocity = normalize(newVelocity);
+    }
+
+    GLdouble xPosIn;
+    glfwGetCursorPos(m_Window, &xPosIn, nullptr);
+
+    auto xpos = static_cast<float>(xPosIn);
+
+    if (firstMouse) {
+      lastX = xpos;
+
+      firstMouse = false;
+    }
+
+    xoffset = xpos - lastX;
     lastX = xpos;
 
-    firstMouse = false;
-  }
+    xoffset *= mouseSens;
 
-  float xoffset = xpos - lastX;
-  lastX = xpos;
+#ifdef _DEBUG
+  }
+#endif
 
 #ifndef _DEBUG
   if (cameraData.bActive) {
@@ -112,7 +116,7 @@ void Game::ProcessInput(float dt) {
   }
 #endif
 
-  xoffset *= mouseSens;
+  playerVelocity = newVelocity;
 
   playerRotation = glm::vec3(xoffset, 0.0f, 0.0f);
 }
@@ -136,57 +140,30 @@ void Game::Render() {
     return;
   }
 
-#ifdef _DEBUG
-  ImGui::Begin("Scene");
-  {
-    ImGui::BeginChild("GameRender");
-
-    float width = ImGui::GetContentRegionAvail().x;
-    float height = ImGui::GetContentRegionAvail().y;
-
-    ImGui::Image((ImTextureID)sceneBuffer->getFrameTexture(), ImGui::GetContentRegionAvail(), ImVec2(0, 1),
-                 ImVec2(1, 0));
-  }
-  ImGui::EndChild();
-  ImGui::End();
-
-  ImGui::Begin("Shadow");
-  {
-    ImGui::BeginChild("ShadowRender");
-
-    float width = ImGui::GetContentRegionAvail().x;
-    float height = ImGui::GetContentRegionAvail().y;
-
-    ImGui::Image((ImTextureID)screenTextureBuffer->getFrameTexture(), ImGui::GetContentRegionAvail(), ImVec2(0, 1),
-                 ImVec2(1, 0));
-  }
-  ImGui::EndChild();
-  ImGui::End();
-#endif
-
   glEnable(GL_DEPTH_TEST);
 
-#ifdef _DEBUG
-  sceneBuffer->Bind();
-#endif
   glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
   glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
   renderGameObjects();
-#ifdef _DEBUG
-  sceneBuffer->Unbind();
-#endif
-
-#ifdef _DEBUG
-  screenTextureBuffer->Bind();
-  glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
-  glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-  renderGameObjects();
-  screenTextureBuffer->Unbind();
-#endif
 }
+
 void Game::renderGameObjects() const {
   ResourceManager::GetShader("default").Use().SetMatrix4("projection", camera->GetViewMatrix());
   const auto objects = scene->GetObjects();
+
+  static glm::vec3 light_ambient = {0.2f, 0.2f, 0.2f};
+  static glm::vec3 light_diffuse = {0.5f, 0.5f, 0.5f};
+  static glm::vec3 light_specular = {1.0f, 1.0f, 1.0f};
+
+  static glm::vec3 lightDirection = {-0.2f, -1.0f, 0.3f};
+
+  ImGui::Begin("Lighting");
+  ImGui::SliderFloat3("Ambient", &light_ambient[0], -1.0f, 1.0f);
+  ImGui::SliderFloat3("Diffuse", &light_diffuse[0], -1.0f, 1.0f);
+  ImGui::SliderFloat3("Specular", &light_specular[0], -1.0f, 1.0f);
+
+  ImGui::SliderFloat3("Location", &lightDirection[0], -10.0f, 10.0f);
+  ImGui::End();
 
   for (auto& iter : objects) {
     auto diffuse = iter->GetMaterial().GetData().Diffuse;
@@ -207,9 +184,9 @@ void Game::renderGameObjects() const {
     shader.SetFloat("material.shininess", shininess);
 
     shader.SetVector3f("light.direction", lightDirection);
-    shader.SetVector3f("light.ambient", 0.2f, 0.2f, 0.2f);
-    shader.SetVector3f("light.diffuse", 0.5f, 0.5f, 0.5f);
-    shader.SetVector3f("light.specular", 1.0f, 1.0f, 1.0f);
+    shader.SetVector3f("light.ambient", light_ambient);
+    shader.SetVector3f("light.diffuse", light_diffuse);
+    shader.SetVector3f("light.specular", light_specular);
 
     glBindVertexArray(iter->GetMesh().GetVAO());
     glDrawArrays(GL_TRIANGLES, 0, iter->GetMesh().GetPoints());
@@ -221,4 +198,23 @@ bool Game::checkWallCollision(const glm::vec3& player) const {
   AABB playerAABB({player.x - (2 / 2.0f), player.z - (2 / 2.0f)}, {2, 2});
 
   return scene->CheckCollisions(playerAABB);
+}
+
+void Game::processKey(GLFWwindow* window, int key, int action, int mode) {
+  if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS) {
+#ifdef _DEBUG
+    toggleMouseCapture(!captureMouse);
+#else
+    glfwSetWindowShouldClose(window, true);
+#endif
+  }
+}
+
+void Game::toggleMouseCapture(bool b) {
+  captureMouse = b;
+  if (b) {
+    glfwSetInputMode(this->m_Window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+  } else {
+    glfwSetInputMode(this->m_Window, GLFW_CURSOR, GLFW_CURSOR_NORMAL);
+  }
 }

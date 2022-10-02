@@ -22,12 +22,10 @@
 void framebuffer_size_callback(GLFWwindow* window, int width, int height);
 void key_callback(GLFWwindow* window, int key, int scancode, int action, int mode);
 
-#ifdef _DEBUG
-FrameBuffer* sceneBuffer;
-#endif
-
 int SCREEN_WIDTH = 1280;
 int SCREEN_HEIGHT = 720;
+
+Game* game;
 
 int main(int argc, char* argv[]) {
 #ifndef _DEBUG
@@ -69,13 +67,7 @@ int main(int argc, char* argv[]) {
 
   srand(time(nullptr));
 
-#ifdef _DEBUG
-  sceneBuffer = new FrameBuffer(SCREEN_WIDTH, SCREEN_HEIGHT);
-  Game* game = new Game(SCREEN_WIDTH, SCREEN_HEIGHT, sceneBuffer);
-#else
-  Game* game = new Game(SCREEN_WIDTH, SCREEN_HEIGHT, nullptr);
-#endif
-
+  game = new Game(SCREEN_WIDTH, SCREEN_HEIGHT);
 
 #ifndef _DEBUG
   glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
@@ -173,12 +165,6 @@ int main(int argc, char* argv[]) {
 
     game->Render();
 #ifdef _DEBUG
-    glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
-    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-#endif
-
-#ifdef _DEBUG
-
     ImGui::Render();
     ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
 #endif
@@ -190,8 +176,6 @@ int main(int argc, char* argv[]) {
   ImGui_ImplOpenGL3_Shutdown();
   ImGui_ImplGlfw_Shutdown();
   ImGui::DestroyContext();
-
-  delete sceneBuffer;
 #endif
 
   ResourceManager::Clear();
@@ -208,14 +192,9 @@ int main(int argc, char* argv[]) {
 }
 
 void key_callback(GLFWwindow* window, int key, int scancode, int action, int mode) {
-  if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS) {
-    glfwSetWindowShouldClose(window, true);
-  }
+  game->processKey(window, key, action, mode);
 }
 
 void framebuffer_size_callback(GLFWwindow* window, int width, int height) {
   glViewport(0, 0, width, height);
-#ifdef _DEBUG
-  sceneBuffer->RescaleFrameBuffer(width, height);
-#endif
 }
