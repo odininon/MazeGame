@@ -1,16 +1,13 @@
+#include <vk_engine.h>
+
 #include <iostream>
 
-#include "HelloTriangleApplication.h"
-
 int main(int argc, char* argv[]) {
-  HelloTriangleApplication app;
+  VulkanEngine engine;
 
-  try {
-    app.run();
-  } catch (const std::exception& e) {
-    std::cerr << e.what() << std::endl;
-    return EXIT_FAILURE;
-  }
+  engine.init();
+  engine.run();
+  engine.cleanup();
 
-  return EXIT_SUCCESS;
+  return 0;
 }

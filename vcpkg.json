@@ -4,6 +4,7 @@
   "dependencies": [
     "glfw3",
     "vulkan-headers",
+    "vk-bootstrap",
     "glm",
     "freetype",
     "stb",
